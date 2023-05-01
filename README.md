@@ -9,7 +9,7 @@ Students: Ian Lee & Anh Ho & Miles Whitaker
 Instructor: Caterina Paun
 
 Our project has been done in the main branch. 
-# Gane SETUP
+# Chess Gane SETUP
 (All commands are with respect to the ** ROOT directory ** of the project)
 
 ```
