@@ -1,0 +1,1 @@
+This folder will store all the images and photo for this project. 
