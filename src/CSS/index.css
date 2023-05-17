@@ -1,4 +1,11 @@
 :root {
+    /* Custom Colors tweeked from BS color palette*/
+    --bs-dark: #2c3034;
+    --bs-darker: #202124;
+    --bs-darkest: #17181f;
+    --bs-light: #bdc1c5;
+    --bs-secondary: #8b9098;
+
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 25px;
@@ -10,8 +17,46 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    
+    background-color: var(--bs-darker);
 }
 
 body {
-    background-color: #242424;
+    background-color: var(--bs-darker)
+}
+
+nav {
+    background-color: var(--bs-dark);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.4);
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link:active {
+    color: white;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: orange;
+}
+
+.WordsAPI-H1 {
+    font-size: 3rem;
+    max-width: 768px;
+}
+
+.input-group input:focus,
+.input-group button:focus {
+  box-shadow: none;
+}
+
+.cap-first::first-letter {
+    text-transform: capitalize;
+  }
+
+button {
+    border: none;
+    outline: none;
 }
