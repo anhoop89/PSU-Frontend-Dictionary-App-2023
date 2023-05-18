@@ -17,7 +17,9 @@ Our project has been done in the main branch.
 
 > 2. Get into a project directory: cd final_frontend_sp2023
 
-> 2. Make sure you have to donwload and install nodejs at https://nodejs.org/en first (skip this step if already installed)
+> 3. Make sure you have to donwload and install nodejs at https://nodejs.org/en first (skip this step if already installed)
+
+> 4. Copy and configure .env file:   ( cp .env.default .env ) 
 
 > 3. Install dependencies:           ( npm i ) 
 
