@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from '../img/logo_test.png';
 import { Route, Routes } from 'react-router-dom';
 
-import Home from '../views/HomePage';
+import HomePage from '../views/HomePage';
 import ContactPage from '../views/ContactPage';
 import DefinePage from '../views/DefinePage';
 import ThesaurusPage from '../views/ThesaurusPage';
@@ -66,7 +66,7 @@ const Navbar = () => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/define" element={<DefinePage />} />
         <Route path="/thesaurus" element={<ThesaurusPage />} />
