@@ -21,9 +21,9 @@ Our project has been done in the main branch.
 
 > 4. Copy and configure .env file:   ( cp .env.default .env ) 
 
-> 3. Install dependencies:           ( npm i ) 
+> 5. Install dependencies:           ( npm i ) 
 
-> 4. Start the whole project:        ( npm start )
+> 6. Start the whole project:        ( npm start )
 
 ```
 
