@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Define() {
+function WordsAPI() {
   const apiKey = process.env.REACT_APP_Words_APIv1_key;
   const url = 'https://wordsapiv1.p.rapidapi.com/words/';
   const options = {
@@ -91,4 +91,4 @@ function Define() {
   );
 }
 
-export default Define;
+export default WordsAPI;

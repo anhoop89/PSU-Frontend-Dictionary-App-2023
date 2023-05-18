@@ -1,9 +1,9 @@
-import Define from '../components/Define';
+import WordsAPI from '../api/WordsAPI';
 
 export default function DefinePage() {
   return (
     <>
-      <Define />
+      <WordsAPI />
       <div>
         <p
           className="text-light mx-auto mt-5"
