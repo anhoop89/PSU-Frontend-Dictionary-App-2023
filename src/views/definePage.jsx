@@ -1,4 +1,4 @@
-import Define from '../components/define';
+import Define from '../components/Define';
 
 export default function DefinePage() {
   return (

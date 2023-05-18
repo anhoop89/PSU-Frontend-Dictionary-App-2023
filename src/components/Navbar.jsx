@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import logo from '../img/logo_test.png';
 import { Route, Routes } from 'react-router-dom';
 
-import Home from '../views/homePage';
-import ContactPage from '../views/contactPage';
-import DefinePage from '../views/definePage';
-import ThesaurusPage from '../views/thesaurusPage';
-import TranslatePage from '../views/translatePage';
+import Home from '../views/HomePage';
+import ContactPage from '../views/ContactPage';
+import DefinePage from '../views/DefinePage';
+import ThesaurusPage from '../views/ThesaurusPage';
+import TranslatePage from '../views/TranslatePage';
 
 const Navbar = () => {
   return (
