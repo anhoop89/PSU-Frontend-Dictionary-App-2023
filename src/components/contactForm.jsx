@@ -25,7 +25,7 @@ function ContactForm() {
       <form className="formCustom mx-auto shadow rounded px-3 pt-3 pb-3 mb-3">
         <h1 className="contactFont mb-4" style={{ fontWeight: 'bold' }}>
           {' '}
-          Contact / Feedback Form
+          Contact / Feedback form
         </h1>
         <div className="mb-3">
           <label className="form-label font-weight-bold">Name:</label>

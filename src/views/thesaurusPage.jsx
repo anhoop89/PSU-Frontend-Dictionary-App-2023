@@ -4,7 +4,7 @@ export default function ThesaurusPage() {
       <h1 className="">This is the thesaurus page!</h1>
       <br></br>
       <div>
-        <p> For now we can put components in here related to a thesaurus.</p>
+        <p> For now we can put components in here related to a thesaurus..</p>
       </div>
     </div>
   );

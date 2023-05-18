@@ -4,7 +4,7 @@ export default function HomePage() {
       <h1 className="text-center">Dictionary Dashboard</h1>
       <br />
       <div className="text-center">
-        <p>Welcome to the Dictionary Dashboard. This is the homepage.</p>
+        <p>Welcome to the Dictionary Dashboard. This is the homepage..</p>
       </div>
     </div>
   );

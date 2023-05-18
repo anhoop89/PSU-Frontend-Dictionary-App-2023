@@ -5,7 +5,8 @@ export default function TranslatePage() {
       <br></br>
       <div>
         <p>
-          For now we can put components in here related to language translation.
+          For now we can put components in here related to language
+          translation..
         </p>
       </div>
     </div>
