@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 
-const apiKey = process.env.REACT_APP_Webster_Spanish_Key;
+const apiKey = process.env.REACT_APP_Spanish_Key;
 const url = "https://www.dictionaryapi.com/api/v3/references/spanish/json/";
 
 
