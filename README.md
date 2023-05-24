@@ -1,6 +1,6 @@
 ## CS 464P/564 - Front End Web Technologies 
 
-# Final Project: Chess Game
+# Final Project: Dictionary Application
 
 Portland State University - Spring 2023
 
@@ -9,7 +9,7 @@ Students: Ian Lee & Anh Ho & Miles Whitaker
 Instructor: Caterina Paun
 
 Our project has been done in the main branch. 
-# Chess Gane SETUP
+# Dictionary App SETUP
 (All commands are with respect to the ** ROOT directory ** of the project)
 
 ```
