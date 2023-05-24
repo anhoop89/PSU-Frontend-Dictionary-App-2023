@@ -1,0 +1,9 @@
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-item-last {
+    margin-left: auto !important; 
+  }
+  
