@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Definitions from './../components/definitions';
 
 function WordsAPI() {
   const apiKey = process.env.REACT_APP_Words_APIv1_key;
@@ -69,24 +70,12 @@ function WordsAPI() {
         </button>
       </div>
 
-      {data &&
-        data.definitions.slice(0, 1).map((definition, index) => (
-          <div
-            key={index}
-            className="rounded my-4"
-            style={{ backgroundColor: 'var(--bs-dark)' }}
-          >
-            <h1 className="card-header text-capitalize p-3">{word}</h1>
-            <div className="card-body p-3">
-              <p className="fst-italic">
-                <b>Part of Speech:</b>
-                <i>"{definition.partOfSpeech.toString()}"</i>
-              </p>
-              <b>Definition:</b>
-              <p className="cap-first">{definition.definition.toString()}.</p>
-            </div>
-          </div>
-        ))}
+      {data && data.definitions && (
+        <>
+          <h1 className="card-header text-capitalize p-3">{data.word}</h1>
+          <Definitions data={data} />
+        </>
+      )}
     </section>
   );
 }
