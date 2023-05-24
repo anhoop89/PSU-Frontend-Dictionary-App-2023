@@ -1,14 +1,34 @@
 import { Link } from "react-router-dom";
 import logo from "../img/logo_test.png";
-import { Route, Routes } from "react-router-dom";
+import '../CSS/navbar.css';
+
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import HomePage from "../views/homePage";
 import ContactPage from "../views/contactPage";
 import WordsPage from "../views/WordsPage";
 import ThesaurusPage from "../views/ThesaurusPage";
 import TranslatePage from "../views/translatePage";
+import Admin from "../views/AdminPage";
+
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const { loginWithPopup, logout, isAuthenticated, isLoading } = useAuth0();
+  const handleLoginClick = async (event) => {
+    event.preventDefault();
+    await loginWithPopup();
+    navigate("/");
+  };
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    logout();
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -56,9 +76,47 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/translate">
+                <Link className="nav-link" to="/translatePage">
                   Translate
                 </Link>
+              </li>
+
+              <li className="nav-item nav-item-last">
+                {!isAuthenticated && !isLoading ? (
+                  <Link to="/">
+                    {/* <button onClick={handleLoginClick} class="nav-link active bg-dark">
+                      Log In
+                    </button> */}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        id="tab-login"
+                        href="#login"
+                        role="tab"
+                        aria-selected="true"
+                        onClick={handleLoginClick}
+                      >
+                        LogIn
+                      </a>
+                    </li>
+                  </Link>
+                ) : (
+                  <Link to="/">
+                    {/* <button onClick={handleLogoutClick}>LogOut</button> */}
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active"
+                        id="tab-logout"
+                        href="#logout"
+                        role="tab"
+                        aria-selected="true"
+                        onClick={handleLogoutClick}
+                      >
+                        LogOut
+                      </a>
+                    </li>
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
@@ -70,7 +128,8 @@ const Navbar = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/WordsPage" element={<WordsPage />} />
         <Route path="/ThesaurusPage" element={<ThesaurusPage />} />
-        <Route path="/translate" element={<TranslatePage />} />
+        <Route path="/translatePage" element={<TranslatePage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   );
