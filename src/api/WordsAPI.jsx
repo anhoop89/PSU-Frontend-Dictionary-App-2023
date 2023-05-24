@@ -1,29 +1,20 @@
-import React, { useState } from 'react';
-import Definitions from './../components/definitions';
+import axios from "axios";
 
-function WordsAPI() {
+const WordsAPI = async (word) => {
   const apiKey = process.env.REACT_APP_Words_APIv1_key;
-  const url = 'https://wordsapiv1.p.rapidapi.com/words/';
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': apiKey,
-      'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
-    },
-  };
-
-  const [word, setWord] = useState('');
-  const [data, setData] = useState(null);
-
-  const fetchWord = async () => {
-    try {
-      const response = await fetch(`${url}${word}/definitions`, options);
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const url = "https://wordsapiv1.p.rapidapi.com/words/";
+  try {
+    const response = await axios.get(`${url}${word}/definitions`, {
+      headers: {
+        "X-RapidAPI-Key": apiKey,
+        "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <section
@@ -70,12 +61,24 @@ function WordsAPI() {
         </button>
       </div>
 
-      {data && data.definitions && (
-        <>
-          <h1 className="card-header text-capitalize p-3">{data.word}</h1>
-          <Definitions data={data} />
-        </>
-      )}
+      {data &&
+        data.definitions.slice(0, 1).map((definition, index) => (
+          <div
+            key={index}
+            className="rounded my-4"
+            style={{ backgroundColor: 'var(--bs-dark)' }}
+          >
+            <h1 className="card-header text-capitalize p-3">{word}</h1>
+            <div className="card-body p-3">
+              <p className="fst-italic">
+                <b>Part of Speech:</b>
+                <i>"{definition.partOfSpeech.toString()}"</i>
+              </p>
+              <b>Definition:</b>
+              <p className="cap-first">{definition.definition.toString()}.</p>
+            </div>
+          </div>
+        ))}
     </section>
   );
 }

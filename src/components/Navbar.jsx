@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import logo from '../img/logo_test.png';
-import { Route, Routes } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import logo from "../img/logo_test.png";
+import { Route, Routes } from "react-router-dom";
 
-import HomePage from '../views/homePage';
-import ContactPage from '../views/contactPage';
-import DefinePage from '../views/definePage';
-import ThesaurusPage from '../views/thesaurusPage';
-import TranslatePage from '../views/translatePage';
+import HomePage from "../views/homePage";
+import ContactPage from "../views/contactPage";
+import WordsPage from "../views/WordsPage";
+import ThesaurusPage from "../views/ThesaurusPage";
+import TranslatePage from "../views/translatePage";
 
 const Navbar = () => {
   return (
@@ -46,12 +46,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/define">
-                  Define
+                <Link className="nav-link" to="/WordsPage">
+                  Words
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/thesaurus">
+                <Link className="nav-link" to="/ThesaurusPage">
                   Thesaurus
                 </Link>
               </li>
@@ -68,8 +68,8 @@ const Navbar = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/define" element={<DefinePage />} />
-        <Route path="/thesaurus" element={<ThesaurusPage />} />
+        <Route path="/WordsPage" element={<WordsPage />} />
+        <Route path="/ThesaurusPage" element={<ThesaurusPage />} />
         <Route path="/translate" element={<TranslatePage />} />
       </Routes>
     </>
