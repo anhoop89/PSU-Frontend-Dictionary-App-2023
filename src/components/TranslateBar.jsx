@@ -66,9 +66,7 @@ const TranslateBar = ({
         <button className="btn btn-primary" onClick={translate}>
           <span>Translate</span>
         </button>
-
       </div>
-
       {searching && <p>Searching...</p>}
     </div>
   );
