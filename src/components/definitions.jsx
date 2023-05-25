@@ -17,6 +17,7 @@ export default function Definitions({ data }) {
           style={{
             backgroundColor: 'var(--bs-dark)',
           }}
+          className="rounded"
         >
           <div
             className={`${
