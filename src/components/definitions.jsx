@@ -12,26 +12,18 @@ export default function Definitions({ data }) {
         {data.word}
       </h1>
       {data.definitions.map((definition, index) => (
-        <div
-          key={index}
-          style={{
-            backgroundColor: 'var(--bs-dark)',
-          }}
-          className="rounded"
-        >
+        <div key={index} className="rounded">
           <div
+            onMouseEnter={() => setIsHovering(index)}
+            onMouseLeave={() => setIsHovering(-1)}
             className={`${
               isHovering === index
                 ? 'card-body p-3 rounded'
                 : 'card-body p-3 rounded border border-dark'
             }`}
-            onMouseEnter={() => setIsHovering(index)}
-            onMouseLeave={() => setIsHovering(-1)}
             style={
               isHovering === index
-                ? {
-                    backgroundColor: '#191919',
-                  }
+                ? { backgroundColor: '#191919' }
                 : { backgroundColor: 'var(--bs-dark)' }
             }
           >
