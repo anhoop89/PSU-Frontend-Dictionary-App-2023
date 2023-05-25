@@ -66,8 +66,8 @@ const Navbar = () => {
                   Translate
                 </Link>
               </li>
-
               <li className="nav-item nav-item-last">
+                {/* login logout tab */}
                <Authenication/>
               </li>
             </ul>
