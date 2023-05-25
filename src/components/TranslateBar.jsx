@@ -1,0 +1,82 @@
+import React from "react";
+
+const TranslateBar = ({
+  translateFrom,
+  translateTo,
+  setTranslateFrom,
+  setTranslateTo,
+  getWord,
+  setWord,
+  translate,
+  searching,
+}) => {
+  const TranslateFromOption = (e) => {
+    const selectedFrom = e.target.value;
+    const selectedTo = selectedFrom === "en" ? "es" : "en";
+    setTranslateFrom(selectedFrom);
+    setTranslateTo(selectedTo);
+  };
+
+  return (
+    <div className="my-3">
+      <div className="input-group mb-3">
+        <label
+          className="input-group-text fw-bold"
+          htmlFor="translateFromOption"
+          style={{ width: "220px" }}
+        >
+          Translate from:
+        </label>
+        <select
+          className="form-select rounded"
+          id="translateFromOption"
+          value={translateFrom}
+          onChange={TranslateFromOption}
+          style={{ width: "100px", cursor:"pointer" }}
+        >
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
+
+      <div className="input-group mb-3">
+        <div
+          className="input-group-text fw-bold"
+          htmlFor="translateToOption"
+          style={{ width: "220px" }}
+        >
+          Translate to:
+        </div>
+        <div
+          id="translateToOption"
+          className="bg-white text-dark rounded border border-dark fw-bold"
+          style={{ width: "100px", padding: "5.5px" }}
+        >
+          {translateFrom === "es" ? <span>English</span> : null}
+          {translateFrom === "en" ? <span>Spanish</span> : null}
+        </div>
+      </div>
+
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control rounded"
+          placeholder="Enter word"
+          value={getWord}
+          onChange={(e) => setWord(e.target.value)}
+          style={{ width: "220px" }}
+        />
+        <button
+          className="btn btn-primary border border-dark "
+          onClick={translate}
+          style={{ width: "100px" }}
+        >
+          <span>Translate</span>
+        </button>
+      </div>
+      {searching && <p>Searching...</p>}
+    </div>
+  );
+};
+
+export default TranslateBar;

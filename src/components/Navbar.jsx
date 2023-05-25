@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 import logo from "../img/logo_test.png";
-import { Route, Routes } from "react-router-dom";
+import '../CSS/navbar.css';
+
+import { Route, Routes} from "react-router-dom";
 
 import HomePage from "../views/homePage";
 import ContactPage from "../views/contactPage";
 import WordsPage from "../views/WordsPage";
 import ThesaurusPage from "../views/ThesaurusPage";
 import TranslatePage from "../views/translatePage";
+import Admin from "../views/AdminPage";
+
+import Authenication from "../components/Authentication";
+
 
 const Navbar = () => {
   return (
@@ -56,9 +62,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/translate">
+                <Link className="nav-link" to="/translatePage">
                   Translate
                 </Link>
+              </li>
+              <li className="nav-item nav-item-last">
+                {/* login logout tab */}
+               <Authenication/>
               </li>
             </ul>
           </div>
@@ -70,7 +80,8 @@ const Navbar = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/WordsPage" element={<WordsPage />} />
         <Route path="/ThesaurusPage" element={<ThesaurusPage />} />
-        <Route path="/translate" element={<TranslatePage />} />
+        <Route path="/translatePage" element={<TranslatePage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </>
   );
