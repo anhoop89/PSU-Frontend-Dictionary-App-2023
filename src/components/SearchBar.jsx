@@ -18,6 +18,7 @@ const SearchBar = ({ value, onChange, onSearch }) => {
         className="btn btn-danger"
         aria-label="Search-button"
         onClick={onSearch}
+        disabled={!value}
         style={{
           borderRadius: "0 1rem 1rem 0",
           width: "48px",
