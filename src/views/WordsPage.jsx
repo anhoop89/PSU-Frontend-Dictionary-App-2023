@@ -5,10 +5,15 @@ import SearchBar from "../components/SearchBar";
 const WordsPage = () => {
   const [word, setWord] = useState("");
   const [data, setData] = useState(null);
+  const [searchedWord, setSearchedWord] = useState("");
+  const [searchAttempt, setSearchAttempt] = useState(false);
 
   const fetchData = async () => {
     const data = await WordsAPI(word);
+    setSearchAttempt(true);
+    setSearchedWord(word);
     setData(data);
+    setWord("");
   };
 
   return (
@@ -24,7 +29,7 @@ const WordsPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {data && data.definitions && data.definitions.length > 0 && (
+      {data && data.definitions && data.definitions.length > 0 ? (
         <div
           className="rounded my-4"
           style={{ backgroundColor: "var(--bs-dark)" }}
@@ -41,6 +46,16 @@ const WordsPage = () => {
             </p>
           </div>
         </div>
+      ) : (
+        searchAttempt && (
+          <div className="text-center mx-auto mt-4">
+            <i className="alert alert-warning">
+              <b className="text-dark" style={{ fontStyle: "normal" }}>
+                Sorry, No results found for: "{searchedWord}"
+              </b>
+            </i>
+          </div>
+        )
       )}
     </section>
   );

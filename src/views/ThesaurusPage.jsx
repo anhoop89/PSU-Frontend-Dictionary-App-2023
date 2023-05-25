@@ -7,11 +7,16 @@ import NavTabs from "../components/NavTabs";
 const ThesaurusPage = () => {
   const [word, setWord] = useState("");
   const [data, setData] = useState(null);
+  const [searchedWord, setSearchedWord] = useState("");
   const [activeTab, setActiveTab] = useState("Synonyms");
+  const [searchAttempt, setSearchAttempt] = useState(false);
 
   const fetchData = async () => {
     const data = await ThesaurusAPI(word);
+    setSearchAttempt(true);
+    setSearchedWord(word);
     setData(data);
+    setWord("");
   };
 
   return (
@@ -25,7 +30,8 @@ const ThesaurusPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {data && (
+
+      {data && data.meta && data.fl && data.shortdef ? (
         <div className="rounded mt-4">
           <div
             className="card-header p-3"
@@ -51,6 +57,16 @@ const ThesaurusPage = () => {
             <TabButton activeTab={activeTab} data={data} />
           </div>
         </div>
+      ) : (
+        searchAttempt && (
+          <div className="text-center mx-auto mt-4">
+            <i className="alert alert-warning">
+              <b className="text-dark" style={{ fontStyle: "normal" }}>
+                Sorry, No results found for: "{searchedWord}"
+              </b>
+            </i>
+          </div>
+        )
       )}
     </section>
   );
