@@ -20,15 +20,19 @@ const TranslateBar = ({
   return (
     <div className="my-3">
       <div className="input-group mb-3">
-        <label className="input-group-text fw-bold" htmlFor="translateFromOption" style={{ width: "220px" }}>
+        <label
+          className="input-group-text fw-bold"
+          htmlFor="translateFromOption"
+          style={{ width: "220px" }}
+        >
           Translate from:
         </label>
         <select
-          className="form-select"
+          className="form-select rounded"
           id="translateFromOption"
           value={translateFrom}
           onChange={TranslateFromOption}
-          style={{ width: "90px" }}
+          style={{ width: "100px", cursor:"pointer" }}
         >
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -36,34 +40,37 @@ const TranslateBar = ({
       </div>
 
       <div className="input-group mb-3">
-        <label className="input-group-text fw-bold" htmlFor="translateToOption" style={{ width: "220px" }}>
-          Translate to:
-        </label>
-        <select
-          className="form-select"
-          id="translateToOption"
-          value={translateTo}
-          onChange={(e) => setTranslateTo(e.target.value)}
-          style={{ width: "90px" }}
+        <div
+          className="input-group-text fw-bold"
+          htmlFor="translateToOption"
+          style={{ width: "220px" }}
         >
-          <option value="es" disabled={translateFrom === "es"}>
-            Spanish
-          </option>
-          <option value="en" disabled={translateFrom === "en"}>
-            English
-          </option>
-        </select>
+          Translate to:
+        </div>
+        <div
+          id="translateToOption"
+          className="bg-white text-dark rounded border border-dark fw-bold"
+          style={{ width: "100px", padding: "5.5px" }}
+        >
+          {translateFrom === "es" ? <span>English</span> : null}
+          {translateFrom === "en" ? <span>Spanish</span> : null}
+        </div>
       </div>
 
       <div className="input-group mb-3">
         <input
           type="text"
-          className="form-control"
+          className="form-control rounded"
           placeholder="Enter word"
           value={getWord}
           onChange={(e) => setWord(e.target.value)}
+          style={{ width: "220px" }}
         />
-        <button className="btn btn-primary" onClick={translate}>
+        <button
+          className="btn btn-primary border border-dark "
+          onClick={translate}
+          style={{ width: "100px" }}
+        >
           <span>Translate</span>
         </button>
       </div>
