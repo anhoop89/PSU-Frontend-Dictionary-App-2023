@@ -6,7 +6,7 @@ const Admin = () => {
   const { isAuthenticated, user } = useAuth0();
   return (
     <div className="bg-light rounded mx-auto p-3 mt-5 w-50">
-      <h1 className="bg-white text-center mb-3">List of Users login</h1>
+      <h1 className="bg-white text-center mb-3">Who logged in?</h1>
       {isAuthenticated ? (
         <div className="whitespace-pre-wrap overflow-x-auto">
           <div className="card">

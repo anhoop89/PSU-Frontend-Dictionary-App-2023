@@ -60,7 +60,7 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className={`collapse navbar-collapse justify-content-between ${
+            className={`collapse navbar-collapse justify-content-between Larger shadow ${
               isOpen ? "show" : ""
             }`}
             ref={dispearMenu}
@@ -72,11 +72,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact">
-                  Contact
-                </Link>
-              </li>
+          
               <li className="nav-item">
                 <Link className="nav-link" to="/WordsPage">
                   Words
@@ -90,6 +86,11 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/translatePage">
                   Translate
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact">
+                  Contact
                 </Link>
               </li>
             </ul>
