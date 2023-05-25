@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../img/logo_test.png";
-import '../CSS/navbar.css';
+import "../CSS/navbar.css";
 
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 
 import HomePage from "../views/homePage";
 import ContactPage from "../views/contactPage";
@@ -13,8 +14,26 @@ import Admin from "../views/AdminPage";
 
 import Authenication from "../components/Authentication";
 
-
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dispearMenu = useRef(null);
+
+  const handleMenuToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (dispearMenu.current && !dispearMenu.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -36,10 +55,17 @@ const Navbar = () => {
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={handleMenuToggle}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div
+            className={`collapse navbar-collapse justify-content-between ${
+              isOpen ? "show" : ""
+            }`}
+            ref={dispearMenu}
+            id="navbarNav"
+          >
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
@@ -66,10 +92,10 @@ const Navbar = () => {
                   Translate
                 </Link>
               </li>
-              <li className="nav-item nav-item-last">
-                {/* login logout tab */}
-               <Authenication/>
-              </li>
+            </ul>
+            <ul className="navbar-nav">
+              {/* login logout for an user */}
+              <Authenication />
             </ul>
           </div>
         </div>
