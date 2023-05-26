@@ -1,25 +1,29 @@
-import React, { useState } from "react";
-import WordsAPI from "../api/WordsAPI";
-import SearchBar from "../components/SearchBar";
+import React, { useState } from 'react';
+import WordsAPI from '../api/WordsAPI';
+import SearchBar from '../components/SearchBar';
+import Definitions from '../components/definitions';
 
 const WordsPage = () => {
-  const [word, setWord] = useState("");
+  const [word, setWord] = useState('');
   const [data, setData] = useState(null);
-  const [searchedWord, setSearchedWord] = useState("");
+  const [searchedWord, setSearchedWord] = useState('');
   const [searchAttempt, setSearchAttempt] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
+    setIsLoading(true);
     const data = await WordsAPI(word);
+    setIsLoading(false);
     setSearchAttempt(true);
     setSearchedWord(word);
     setData(data);
-    setWord("");
+    setWord('');
   };
 
   return (
     <section
       className="Define-Section text-light mx-auto mt-5"
-      style={{ maxWidth: "768px", backgroundColor: "var(--bs-darker)" }}
+      style={{ maxWidth: '768px', backgroundColor: 'var(--bs-darker)' }}
     >
       <h1 className="Define-H1 text-center m-auto pb-4">
         Start Exploring and Searching for Words in the Dictionary
@@ -29,28 +33,15 @@ const WordsPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {data && data.definitions && data.definitions.length > 0 ? (
-        <div
-          className="rounded my-4"
-          style={{ backgroundColor: "var(--bs-dark)" }}
-        >
-          <h1 className="card-header text-capitalize p-3">{data.word}</h1>
-          <div className="card-body p-3">
-            <p className="fst-italic">
-              <b>Part of Speech: </b>
-              <i>"{data.definitions[0].partOfSpeech.toString()}"</i>
-            </p>
-            <b>Definition:</b>
-            <p className="cap-first">
-              {data.definitions[0].definition.toString()}.
-            </p>
-          </div>
-        </div>
+      {isLoading && <h2>Loading...</h2>}
+      {!isLoading && data && data.definitions && data.definitions.length > 0 ? (
+        <Definitions data={data} />
       ) : (
+        !isLoading &&
         searchAttempt && (
           <div className="text-center mx-auto mt-4">
             <i className="alert alert-warning">
-              <b className="text-dark" style={{ fontStyle: "normal" }}>
+              <b className="text-dark" style={{ fontStyle: 'normal' }}>
                 Sorry, No results found for: "{searchedWord}"
               </b>
             </i>
