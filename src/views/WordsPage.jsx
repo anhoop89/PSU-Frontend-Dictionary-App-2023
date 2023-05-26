@@ -8,9 +8,12 @@ const WordsPage = () => {
   const [data, setData] = useState(null);
   const [searchedWord, setSearchedWord] = useState('');
   const [searchAttempt, setSearchAttempt] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
+    setIsLoading(true);
     const data = await WordsAPI(word);
+    setIsLoading(false);
     setSearchAttempt(true);
     setSearchedWord(word);
     setData(data);
@@ -30,9 +33,11 @@ const WordsPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {data && data.definitions && data.definitions.length > 0 ? (
+      {isLoading && <h2>Loading...</h2>}
+      {!isLoading && data && data.definitions && data.definitions.length > 0 ? (
         <Definitions data={data} />
       ) : (
+        !isLoading &&
         searchAttempt && (
           <div className="text-center mx-auto mt-4">
             <i className="alert alert-warning">
