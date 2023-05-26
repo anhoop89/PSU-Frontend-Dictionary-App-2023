@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Authenication = () => {
   const navigate = useNavigate();
-  const { loginWithPopup, logout, isAuthenticated, isLoading } = useAuth0();
+  const { loginWithPopup, logout, isAuthenticated, isLoading, user } = useAuth0();
 
   const handleLoginClick = async (event) => {
     event.preventDefault();
@@ -32,7 +32,8 @@ const Authenication = () => {
             </a>
         </li>
       ) : (
-        <li className="nav-item">
+        <li className="input-group nav-item">
+            {isAuthenticated ? <span className="pt-2">Welcome {user.name},&nbsp;</span>: ""} 
             <a
               className="nav-link active"
               id="tab-logout"
