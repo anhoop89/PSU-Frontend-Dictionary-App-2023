@@ -2,38 +2,68 @@ import { useState } from 'react';
 
 export default function Definitions({ data }) {
   const [isHovering, setIsHovering] = useState(-1);
+  const defs = data.definitions;
+
+  // Sort the definitions by their 'part of speech'
+  defs.sort((a, b) => a.partOfSpeech > b.partOfSpeech);
+
+  // Assign a 'title' flag to the first of each type of definition. This flag will
+  // be used to determine where to display the partsOfSpeech section titles of the
+  // definition list output.
+  for (let i = 0; i < defs.length; i += 1) {
+    if (i === 0) {
+      defs[i].isTitle = true;
+    } else if (defs[i].partOfSpeech === defs[i - 1].partOfSpeech) {
+      defs[i].isTitle = false;
+    } else {
+      defs[i].isTitle = true;
+    }
+  }
 
   return (
-    <div>
+    <div className="p-4">
       <h1
-        className="card-header rounded text-center text-capitalize my-4"
+        className="card-header rounded text-center text-capitalize mt-4"
         style={{ backgroundColor: 'var(--bs-dark)' }}
       >
         {data.word}
       </h1>
-      {data.definitions.map((definition, index) => (
-        <div key={index} className="rounded">
-          <div
-            onMouseEnter={() => setIsHovering(index)}
-            onMouseLeave={() => setIsHovering(-1)}
-            className={`${
-              isHovering === index
-                ? 'card-body p-3 rounded'
-                : 'card-body p-3 rounded border border-dark'
-            }`}
-            style={
-              isHovering === index
-                ? { backgroundColor: '#191919' }
-                : { backgroundColor: 'var(--bs-dark)' }
-            }
-          >
-            <p className="font-weight-bold font">
-              <span className="mr-2">{index + 1}.</span>
-              <i>{definition.partOfSpeech.toString()}: </i>
-            </p>
-            <p className="cap-first">{definition.definition.toString()}.</p>
+      {defs.map((def, index) => (
+        <>
+          {def.isTitle && (
+            <h3 className="mt-3 pl-3">
+              <i>{def.partOfSpeech}</i>
+            </h3>
+          )}
+          <div key={index} className="rounded">
+            <div
+              onMouseEnter={() => setIsHovering(index)}
+              onMouseLeave={() => setIsHovering(-1)}
+              className={`${
+                isHovering === index
+                  ? 'card-body p-3 rounded'
+                  : 'card-body p-3 rounded border border-dark'
+              }`}
+              style={
+                isHovering === index
+                  ? { backgroundColor: 'var(--bs-darkest)' }
+                  : { backgroundColor: 'var(--bs-dark)' }
+              }
+            >
+              <div className="d-flex font-weight-bold font">
+                <div
+                  className="mr-3"
+                  style={{ fontSize: '1.20rem', minWidth: '30px' }}
+                >
+                  {index + 1}.
+                </div>
+                <div className="cap-first definition-text" id="definition-text">
+                  {def.definition.toString()}.
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       ))}
     </div>
   );
