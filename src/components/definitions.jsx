@@ -37,7 +37,7 @@ export default function Definitions({ data }) {
         {defs.map(
           (def, index) =>
             index < defsVisible && (
-              <>
+              <div key={index} className="rounded">
                 {def.isTitle && (
                   <div
                     className="d-flex rounded "
@@ -48,31 +48,29 @@ export default function Definitions({ data }) {
                     </h4>
                   </div>
                 )}
-                <div key={index} className="rounded">
-                  <div
-                    onMouseEnter={() => setHovering(index)}
-                    onMouseLeave={() => setHovering(-1)}
-                    className="card-body p-3 rounded border border-dark"
-                    style={
-                      hovering === index
-                        ? { backgroundColor: 'var(--bs-dark)' }
-                        : { backgroundColor: 'var(--bs-darker)' }
-                    }
-                  >
-                    <div className="d-flex font-weight-bold font">
-                      <div
-                        className="mr-3"
-                        style={{ fontSize: '1.20rem', minWidth: '30px' }}
-                      >
-                        {index + 1}.
-                      </div>
-                      <div className="cap-first definition-text">
-                        {def.definition.toString()}.
-                      </div>
+                <div
+                  onMouseEnter={() => setHovering(index)}
+                  onMouseLeave={() => setHovering(-1)}
+                  className="card-body p-3 rounded border border-dark"
+                  style={
+                    hovering === index
+                      ? { backgroundColor: 'var(--bs-dark)' }
+                      : { backgroundColor: 'var(--bs-darker)' }
+                  }
+                >
+                  <div className="d-flex font-weight-bold font">
+                    <div
+                      className="mr-3"
+                      style={{ fontSize: '1.20rem', minWidth: '30px' }}
+                    >
+                      {index + 1}.
+                    </div>
+                    <div className="cap-first definition-text">
+                      {def.definition.toString()}.
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             ),
         )}
       </div>
