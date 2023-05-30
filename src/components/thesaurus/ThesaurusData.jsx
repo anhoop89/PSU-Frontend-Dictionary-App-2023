@@ -1,5 +1,5 @@
-import NavTabs from "../NavTabs";
-import TabButton from "../TabButton";
+import NavTabs from "./ThesaurusTabs";
+import TabButton from "./TabButtonData";
 import React, { useState } from "react";
 
 const ThesaurusData = ({ data }) => {

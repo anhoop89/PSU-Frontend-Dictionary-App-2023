@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NavTabs from "../NavTabs";
-import ThesaurusTabs from "./ThesaurusTabs";
+import NavTabs from "./ThesaurusTabs";
+import TabButtonJson from "./TabButtonJson";
 import NoResultsMessage from "../NoResultsMessage";
 import dictionary from "../../data/dictionary.json";
 
@@ -42,7 +42,7 @@ const ThesaurusJson = ({ word }) => {
           backgroundColor: "var(--bs-dark)",
         }}
       >
-        <ThesaurusTabs activeTab={activeTab} data={data.definitions[0]} />
+        <TabButtonJson activeTab={activeTab} data={data.definitions[0]} />
       </div>
     </div>
   );
