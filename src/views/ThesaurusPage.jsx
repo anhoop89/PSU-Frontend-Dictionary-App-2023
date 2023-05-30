@@ -46,7 +46,7 @@ const ThesaurusPage = () => {
 
       {isLoading ? (
         <LoadingAnimation />
-      ) : data ? (
+      ) : data && data.meta ? (
         <ThesaurusData data={data} />
       ) : (
         <ThesaurusJson word={search} />
