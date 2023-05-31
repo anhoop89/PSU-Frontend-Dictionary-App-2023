@@ -26,7 +26,7 @@ export default function Definitions({ data }) {
   }
 
   return (
-    <div className="p-4">
+    <div className="py-4">
       <h1
         className="card-header rounded text-capitalize mt-2"
         style={{ backgroundColor: 'var(--bs-darker)', fontSize: '3rem' }}
