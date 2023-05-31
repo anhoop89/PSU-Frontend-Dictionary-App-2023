@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WordsAPI from '../api/WordsAPI';
 import SearchBar from '../components/SearchBar';
 import Definitions from '../components/definitions';
+import FrequencyInfo from '../components/frequencyInfo';
 import { Bar } from 'react-chartjs-2';
 import { Chart } from 'chart.js';
 import 'chart.js/auto';
@@ -15,6 +16,7 @@ const WordsPage = () => {
   const [wordArray, setWordArray] = useState([]);
   const [freqArray, setFreqArray] = useState([]);
   const [barData, setBarData] = useState({});
+  const [isInfo, setIsInfo] = useState(false);
 
   const barGraphOptions = {
     indexAxis: 'y',
@@ -50,11 +52,10 @@ const WordsPage = () => {
           data: freqArray,
           borderWidth: 2,
           borderColor: '#888888',
-          backgroundColor: '#995555',
+          backgroundColor: '#994444',
           maxBarThickness: 50,
         },
       ],
-      font: { size: 16 },
     });
   }, [wordArray, freqArray]);
 
@@ -85,19 +86,27 @@ const WordsPage = () => {
       {!isLoading && data && data.results && data.results.length > 0 ? (
         <>
           <Definitions data={data} />
-          <div
-            className="rounded border border-secondary my-5"
-            style={{ backgroundColor: 'var(--bs-dark)' }}
-          >
+          <div className="rounded border border-secondary my-5">
             <div
-              className="d-flex rounded "
-              style={{
-                maxWidth: '768',
-                backgroundColor: 'var(--bs-darkest)',
-              }}
+              className="d-flex rounded px-3"
+              style={{ maxWidth: '768', backgroundColor: 'var(--bs-darkest)' }}
             >
-              <h4 className="mt-2 pl-3">Word Frequency</h4>
+              <div>
+                <h4 className="mt-2">Word Frequency</h4>
+              </div>
+              <div className="ml-auto align-items-center">
+                <button
+                  type="button"
+                  className="btn btn-dark btn-sm mt-2"
+                  onClick={() => {
+                    isInfo ? setIsInfo(false) : setIsInfo(true);
+                  }}
+                >
+                  Explain
+                </button>
+              </div>
             </div>
+            {isInfo ? <FrequencyInfo /> : <></>}
             <Bar className="p-4" data={barData} options={barGraphOptions}></Bar>
           </div>
         </>
