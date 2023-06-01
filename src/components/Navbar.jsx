@@ -11,7 +11,6 @@ import WordsPage from "../views/WordsPage";
 import ThesaurusPage from "../views/ThesaurusPage";
 import TranslatePage from "../views/translatePage";
 import Admin from "../views/AdminPage";
-
 import Authenication from "../components/Authentication";
 
 const Navbar = () => {
@@ -72,7 +71,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-          
+
               <li className="nav-item">
                 <Link className="nav-link" to="/WordsPage">
                   Words
