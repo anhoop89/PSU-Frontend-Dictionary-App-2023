@@ -7,7 +7,7 @@ export default function Definitions({ data }) {
   const [hovering, setHovering] = useState(-1);
   const [defsVisible, setDefsVisible] = useState(min);
 
-  const defs = data.results;
+  const defs = data.definitions;
 
   // Sort the definitions by their 'part of speech'
   defs.sort((a, b) => a.partOfSpeech > b.partOfSpeech);
@@ -26,7 +26,7 @@ export default function Definitions({ data }) {
   }
 
   return (
-    <div className="py-4">
+    <div className="p-4">
       <h1
         className="card-header rounded text-capitalize mt-2"
         style={{ backgroundColor: 'var(--bs-darker)', fontSize: '3rem' }}
