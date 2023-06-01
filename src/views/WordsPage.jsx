@@ -18,6 +18,10 @@ const WordsPage = () => {
   const [barData, setBarData] = useState({});
   const [isInfo, setIsInfo] = useState(false);
 
+  const maxChartData = 10;
+  Chart.defaults.font.size = 20;
+  Chart.defaults.color = '#ffffff';
+
   const barGraphOptions = {
     indexAxis: 'y',
     plugins: {
@@ -30,20 +34,22 @@ const WordsPage = () => {
     },
   };
 
-  Chart.defaults.font.size = 20;
-  Chart.defaults.color = '#ffffff';
-
+  // Update the list of words and frequencies to use as data for the bar chart.
+  // Only update the arrays if there exists both definitions and frequencies for
+  // that word. Once the arrays reach max size only store the most recent words.
   function updateGraphInfo(data) {
     if (data.results && data.frequency) {
       setWordArray((current) => [...current, data.word]);
       setFreqArray((current) => [...current, data.frequency]);
-      if (wordArray.length > 10) {
+      if (wordArray.length >= maxChartData) {
         setWordArray((current) => [...current.slice(1)]);
         setFreqArray((current) => [...current.slice(1)]);
       }
     }
   }
 
+  // Re-render the bar chart every time a user enters a word by using wordArray and
+  // freqArray as dependencies, which are updated every fetch in updateGraphInfo().
   useEffect(() => {
     setBarData({
       labels: wordArray,
