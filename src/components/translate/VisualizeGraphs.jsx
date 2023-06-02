@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DoughnutChart from "./DonutGraphEN";
 
 const VisualizeGraphs = ({ getSortedWords }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,17 @@ const VisualizeGraphs = ({ getSortedWords }) => {
 
         {isOpen && (
           <div className="py-4 text-center">
-            <p>...Still working on it...</p>
+         
+            {getSortedWords.some((word) => word.word.includes("-en")) ? (
+              <>
+              <h4 className="pt-2 pb-2">Top 5 English Words</h4>
+              <DoughnutChart topWords={getSortedWords}/>
+              </>
+              
+            ): (
+              <DoughnutChart topWords={getSortedWords} />
+            )}
+       
           </div>
         )}
       </div>

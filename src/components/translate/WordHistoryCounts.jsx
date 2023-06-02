@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import "../../CSS/translate.css";
 
 import VisualizeGraphs from "./VisualizeGraphs";
+
 const WordHistoryCounts = ({ getSortedWords }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,6 +60,7 @@ const WordHistoryCounts = ({ getSortedWords }) => {
                   <div>
                     <h4 className="pt-2 pb-2">English Words</h4>
                     <ul className="list-group">
+                    
                       {getSortedWords.map((word, index) => {
                         if (word.word.includes("-en")) {
                           return (
@@ -118,8 +120,10 @@ const WordHistoryCounts = ({ getSortedWords }) => {
         )}
       </div>
     </div>
-
-    <VisualizeGraphs/>
+    {getSortedWords.length > 0 ? (          
+      <VisualizeGraphs getSortedWords = {getSortedWords}/>
+    ):null
+    }
     </>
   );
 };
