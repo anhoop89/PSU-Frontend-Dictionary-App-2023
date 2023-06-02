@@ -4,6 +4,7 @@ import SearchBar from '../components/SearchBar';
 import Definitions from '../components/dictionary/Definitions';
 import DefinitionVisual from '../components/dictionary/DefinitionVisual';
 import NoResultsMessage from '../components/NoResultsMessage';
+import LoadingAnimation from '../components/LoadingAnimation';
 
 const WordsPage = () => {
   const [word, setWord] = useState('');
@@ -31,7 +32,8 @@ const WordsPage = () => {
 
   // Update the list of words and frequencies to use as data for the bar chart.
   // Only update the arrays if there exists both definitions and frequencies for
-  // that word. Once the arrays reach max size only store the most recent words.
+  // that word and it isn't already in the array.
+  // Once the arrays reach max size only store the most recent words.
   function updateGraphInfo(data) {
     if (data.results && data.frequency) {
       if (
@@ -88,7 +90,7 @@ const WordsPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {isLoading && <h2>Loading...</h2>}
+      {isLoading && <LoadingAnimation />}
       {!isLoading && data && data.results && data.results.length > 0 ? (
         <>
           <Definitions data={data} />
