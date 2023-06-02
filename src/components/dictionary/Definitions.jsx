@@ -1,4 +1,4 @@
-import Definition from './definition';
+import Definition from '../dictionary/Definition';
 import { useState } from 'react';
 
 export default function Definitions({ data }) {

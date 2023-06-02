@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FrequencyInfo from '../components/frequencyInfo';
+import FrequencyInfo from '../dictionary/FrequencyInfo';
 import { Bar } from 'react-chartjs-2';
 import { Chart } from 'chart.js';
 import 'chart.js/auto';

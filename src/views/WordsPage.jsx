@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import WordsAPI from '../api/WordsAPI';
 import SearchBar from '../components/SearchBar';
-import Definitions from '../components/definitions';
-import DefinitionVisual from '../components/definitionVisual';
+import Definitions from '../components/dictionary/Definitions';
+import DefinitionVisual from '../components/dictionary/DefinitionVisual';
 
 const WordsPage = () => {
   const [word, setWord] = useState('');
