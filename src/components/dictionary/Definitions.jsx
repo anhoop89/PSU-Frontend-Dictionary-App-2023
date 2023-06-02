@@ -36,7 +36,9 @@ export default function Definitions({ data }) {
       <div className="rounded border border-secondary">
         {defs.map(
           (def, index) =>
-            index < defsVisible && <Definition def={def} key={index} />,
+            index < defsVisible && (
+              <Definition def={def} index={index} key={index} />
+            ),
         )}
       </div>
       {
