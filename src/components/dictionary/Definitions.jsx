@@ -1,10 +1,10 @@
+import Definition from '../dictionary/Definition';
 import { useState } from 'react';
 
 export default function Definitions({ data }) {
   const min = 5; // Number of definitions to display when 'collapsed'
   const max = 100; // Number of definitions to display when 'expanded'
 
-  const [hovering, setHovering] = useState(-1);
   const [defsVisible, setDefsVisible] = useState(min);
 
   const defs = data.results;
@@ -37,40 +37,7 @@ export default function Definitions({ data }) {
         {defs.map(
           (def, index) =>
             index < defsVisible && (
-              <div key={index} className="rounded">
-                {def.isTitle && (
-                  <div
-                    className="d-flex rounded "
-                    style={{ backgroundColor: 'var(--bs-dark)' }}
-                  >
-                    <h4 className="mt-2 pl-3">
-                      <i>{def.partOfSpeech}</i>
-                    </h4>
-                  </div>
-                )}
-                <div
-                  onMouseEnter={() => setHovering(index)}
-                  onMouseLeave={() => setHovering(-1)}
-                  className="card-body p-3 rounded border border-dark"
-                  style={
-                    hovering === index
-                      ? { backgroundColor: 'var(--bs-dark)' }
-                      : { backgroundColor: 'var(--bs-darker)' }
-                  }
-                >
-                  <div className="d-flex font-weight-bold font">
-                    <div
-                      className="mr-3"
-                      style={{ fontSize: '1.20rem', minWidth: '30px' }}
-                    >
-                      {index + 1}.
-                    </div>
-                    <div className="cap-first definition-text">
-                      {def.definition.toString()}.
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Definition def={def} index={index} key={index} />
             ),
         )}
       </div>

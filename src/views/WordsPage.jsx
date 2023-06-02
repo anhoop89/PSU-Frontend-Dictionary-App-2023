@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import WordsAPI from '../api/WordsAPI';
 import SearchBar from '../components/SearchBar';
-import Definitions from '../components/definitions';
-import FrequencyInfo from '../components/frequencyInfo';
-import { Bar } from 'react-chartjs-2';
-import { Chart } from 'chart.js';
-import 'chart.js/auto';
+import Definitions from '../components/dictionary/Definitions';
+import DefinitionVisual from '../components/dictionary/DefinitionVisual';
+import NoResultsMessage from '../components/NoResultsMessage';
+import LoadingAnimation from '../components/LoadingAnimation';
 
 const WordsPage = () => {
   const [word, setWord] = useState('');
@@ -16,13 +15,10 @@ const WordsPage = () => {
   const [wordArray, setWordArray] = useState([]);
   const [freqArray, setFreqArray] = useState([]);
   const [barData, setBarData] = useState({});
-  const [isInfo, setIsInfo] = useState(false);
 
   const maxChartData = 10;
-  Chart.defaults.font.size = 20;
-  Chart.defaults.color = '#ffffff';
 
-  const barGraphOptions = {
+  const graphOptions = {
     indexAxis: 'y',
     plugins: {
       title: {
@@ -36,11 +32,17 @@ const WordsPage = () => {
 
   // Update the list of words and frequencies to use as data for the bar chart.
   // Only update the arrays if there exists both definitions and frequencies for
-  // that word. Once the arrays reach max size only store the most recent words.
+  // that word and it isn't already in the array.
+  // Once the arrays reach max size only store the most recent words.
   function updateGraphInfo(data) {
     if (data.results && data.frequency) {
-      setWordArray((current) => [...current, data.word]);
-      setFreqArray((current) => [...current, data.frequency]);
+      if (
+        wordArray.length === 0 ||
+        (wordArray.length > 0 && !wordArray.includes(data.word))
+      ) {
+        setWordArray((current) => [...current, data.word]);
+        setFreqArray((current) => [...current, data.frequency]);
+      }
       if (wordArray.length >= maxChartData) {
         setWordArray((current) => [...current.slice(1)]);
         setFreqArray((current) => [...current.slice(1)]);
@@ -88,45 +90,15 @@ const WordsPage = () => {
         onChange={(e) => setWord(e.target.value.trim())}
         onSearch={fetchData}
       />
-      {isLoading && <h2>Loading...</h2>}
+      {isLoading && <LoadingAnimation />}
       {!isLoading && data && data.results && data.results.length > 0 ? (
         <>
           <Definitions data={data} />
-          <div className="rounded border border-secondary my-5">
-            <div
-              className="d-flex rounded px-3"
-              style={{ maxWidth: '768', backgroundColor: 'var(--bs-darkest)' }}
-            >
-              <div>
-                <h4 className="mt-2">Word Frequency</h4>
-              </div>
-              <div className="ml-auto align-items-center">
-                <button
-                  type="button"
-                  className="btn btn-dark btn-sm mt-2"
-                  onClick={() => {
-                    isInfo ? setIsInfo(false) : setIsInfo(true);
-                  }}
-                >
-                  Explain
-                </button>
-              </div>
-            </div>
-            {isInfo ? <FrequencyInfo /> : <></>}
-            <Bar className="p-4" data={barData} options={barGraphOptions}></Bar>
-          </div>
+          <DefinitionVisual barData={barData} graphOptions={graphOptions} />
         </>
       ) : (
         !isLoading &&
-        searchAttempt && (
-          <div className="text-center mx-auto mt-4">
-            <i className="alert alert-warning">
-              <b className="text-dark" style={{ fontStyle: 'normal' }}>
-                Sorry, No results found for: "{searchedWord}"
-              </b>
-            </i>
-          </div>
-        )
+        searchAttempt && <NoResultsMessage searchedWord={searchedWord} />
       )}
     </section>
   );
