@@ -3,6 +3,7 @@ import WordsAPI from '../api/WordsAPI';
 import SearchBar from '../components/SearchBar';
 import Definitions from '../components/dictionary/Definitions';
 import DefinitionVisual from '../components/dictionary/DefinitionVisual';
+import NoResultsMessage from '../components/NoResultsMessage';
 
 const WordsPage = () => {
   const [word, setWord] = useState('');
@@ -90,15 +91,7 @@ const WordsPage = () => {
         </>
       ) : (
         !isLoading &&
-        searchAttempt && (
-          <div className="text-center mx-auto mt-4">
-            <i className="alert alert-warning">
-              <b className="text-dark" style={{ fontStyle: 'normal' }}>
-                Sorry, No results found for: "{searchedWord}"
-              </b>
-            </i>
-          </div>
-        )
+        searchAttempt && <NoResultsMessage searchedWord={searchedWord} />
       )}
     </section>
   );
