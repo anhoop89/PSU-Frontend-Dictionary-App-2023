@@ -17,7 +17,7 @@ const borderColors = [
   "rgba(153, 102, 255, 1)",
 ];
 
-const DonutGraphEN = ({ topWords }) => {
+const DonutGraphEN = ({ getSortedWords }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -28,10 +28,14 @@ const DonutGraphEN = ({ topWords }) => {
         chartInstance.destroy();
       }
 
-      const labels = topWords
+      const labels = getSortedWords
+        .filter((word) => word.word.includes("-en"))
         .slice(0, 5)
-        .map((word) => `#WORD:  ${word.word.slice(0, -3).toUpperCase()}`);
-      const data = topWords.slice(0, 5).map((word) => word.frequency);
+        .map((word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`);
+      const data = getSortedWords
+        .filter((word) => word.word.includes("-en"))
+        .slice(0, 5)
+        .map((word) => word.frequency);
 
       const chartData = {
         labels,
@@ -58,10 +62,10 @@ const DonutGraphEN = ({ topWords }) => {
                 position: "top",
                 labels: {
                   font: {
-                      size: 14
+                    size: 14,
                   },
                   color: "white",
-              }
+                },
               },
             },
           },
@@ -76,17 +80,17 @@ const DonutGraphEN = ({ topWords }) => {
         chartInstance.destroy();
       }
     };
-  }, [topWords]);
+  }, [getSortedWords]);
 
   return (
-    <div className="bg-dark rounded mx-auto p-4 mt-3 d-flex justify-content-center align-items-center border"
-    style={{ width: "90%", backgroundColor: "var(--bs-darker)" }}
+    <div
+      className="bg-dark rounded mx-auto p-4 mt-3 d-flex justify-content-center align-items-center border"
+      style={{ width: "90%", backgroundColor: "var(--bs-darker)" }}
     >
-
       <canvas
         ref={chartRef}
         className="text-white"
-        style={{ color: "white", }}
+        style={{ color: "white" }}
         aria-label="donut chart"
         role="img"
       ></canvas>
