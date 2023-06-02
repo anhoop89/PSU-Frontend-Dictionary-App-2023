@@ -45,7 +45,7 @@ const VisualizeGraphs = ({ getSortedWords }) => {
          
             {getSortedWords.some((word) => word.word.includes("-en")) ? (
               <>
-              <h4 className="pt-2 pb-2">Top 5 English Words</h4>
+              <h4 className="pt-2 pb-2">Top 5 English Translation Words</h4>
               <DoughnutChart topWords={getSortedWords}/>
               </>
               
