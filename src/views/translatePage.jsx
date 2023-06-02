@@ -13,7 +13,8 @@ import TranslateBar from "../components/translate/TranslateBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cookies from "js-cookie";
-import VisualizeFrequency from "../components/translate/VisualizeFrequency";
+import VisualizeWordCounts from "../components/translate/VisualizeWordCounts";
+import "../CSS/translate.css";
 
 const TranslatePage = () => {
   const [getWord, setWord] = useState(""); // input
@@ -142,14 +143,8 @@ const TranslatePage = () => {
           </div>
           <div className="col" data-aos="fade-left">
             <div
-              className="card-body mt-3 rounded"
+              className="custom-border card-body mt-3 rounded"
               style={{
-                borderTop: "1px solid var(--secondary)",
-                borderRight: "1px solid var(--secondary)",
-                borderBottom: "1px solid var(--secondary)",
-                borderLeft: "1px solid var(--secondary)",
-                backgroundColor: "var(--bs-dark)",
-                width: "100%",
                 height: "70%",
               }}
             >
@@ -162,7 +157,7 @@ const TranslatePage = () => {
         </div>
         {/* visulization */}
         <div>
-          <VisualizeFrequency getSortedWords={getSortedWords} />
+          <VisualizeWordCounts getSortedWords={getSortedWords} />
         </div>
       </div>
     </section>
