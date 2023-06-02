@@ -41,7 +41,7 @@ const VisualizeGraphs = ({ getSortedWords }) => {
 
         {isOpen && (
           <div className="py-4 text-center">
-            <p>// Still working on it //</p>
+            <p>...Still working on it...</p>
           </div>
         )}
       </div>
