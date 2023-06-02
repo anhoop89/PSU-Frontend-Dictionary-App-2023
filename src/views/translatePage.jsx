@@ -13,7 +13,7 @@ import TranslateBar from "../components/translate/TranslateBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cookies from "js-cookie";
-import VisualizeWordCounts from "../components/translate/VisualizeWordCounts";
+import WordHistoryCounts from "../components/translate/WordHistoryCounts";
 import "../CSS/translate.css";
 
 const TranslatePage = () => {
@@ -121,12 +121,12 @@ const TranslatePage = () => {
       className="Define-Section text-light mx-auto mt-5"
       style={{ maxWidth: "768px", backgroundColor: "var(--bs-darker)" }}
     >
-      <div className="container">
-        <h1 className="Define-H1 text-center m-auto pb-4">
+      <div className="container ">
+        <h1 className="text-center m-auto pb-4">
           Let's explore and translate a word!
         </h1>
         <div className="row">
-          <div className="col" data-aos="fade-up-right">
+          <div className="col" data-aos="fade-up-right" data-aos-duration="500">
             <div className="input-group mb-3">
               <TranslateBar
                 translateFrom={translateFrom}
@@ -141,7 +141,7 @@ const TranslatePage = () => {
               />
             </div>
           </div>
-          <div className="col" data-aos="fade-left">
+          <div className="col" data-aos="fade-left" data-aos-duration="500">
             <div
               className="custom-border card-body mt-3 rounded"
               style={{
@@ -157,7 +157,7 @@ const TranslatePage = () => {
         </div>
         {/* visulization */}
         <div>
-          <VisualizeWordCounts getSortedWords={getSortedWords} />
+          <WordHistoryCounts getSortedWords={getSortedWords} />
         </div>
       </div>
     </section>

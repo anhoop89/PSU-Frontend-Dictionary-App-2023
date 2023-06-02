@@ -1,4 +1,4 @@
-/* visulizeWordCounts */
+/* WordHistoryCounts */
 
 /* general custom border */
   .custom-border {
@@ -8,4 +8,8 @@
     border-left: 1px solid var(--secondary);
     background-color: var(--bs-dark);
     width: 100%;
+  }
+
+  .custom-tab{
+    background-color: rgba(168, 32, 32, 0.719) !important;
   }
