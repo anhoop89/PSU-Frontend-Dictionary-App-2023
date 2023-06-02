@@ -34,8 +34,13 @@ const WordsPage = () => {
   // that word. Once the arrays reach max size only store the most recent words.
   function updateGraphInfo(data) {
     if (data.results && data.frequency) {
-      setWordArray((current) => [...current, data.word]);
-      setFreqArray((current) => [...current, data.frequency]);
+      if (
+        wordArray.length === 0 ||
+        (wordArray.length > 0 && !wordArray.includes(data.word))
+      ) {
+        setWordArray((current) => [...current, data.word]);
+        setFreqArray((current) => [...current, data.frequency]);
+      }
       if (wordArray.length >= maxChartData) {
         setWordArray((current) => [...current.slice(1)]);
         setFreqArray((current) => [...current.slice(1)]);
