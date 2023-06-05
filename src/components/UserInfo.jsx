@@ -2,7 +2,7 @@
 // still not working yet.
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Admin = () => {
+const User = () => {
   const { isAuthenticated, user } = useAuth0();
   return (
     <div className="bg-light rounded mx-auto p-3 mt-5 w-50">
@@ -37,4 +37,4 @@ const Admin = () => {
     </div>
   );
 };
-export default Admin;
+export default User;

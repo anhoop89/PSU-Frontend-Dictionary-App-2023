@@ -10,7 +10,7 @@ import ContactPage from "../views/contactPage";
 import WordsPage from "../views/WordsPage";
 import ThesaurusPage from "../views/ThesaurusPage";
 import TranslatePage from "../views/translatePage";
-import Admin from "../views/AdminPage";
+import UserPage from "../views/UserPage";
 import Authenication from "../components/Authentication";
 
 const Navbar = () => {
@@ -107,7 +107,7 @@ const Navbar = () => {
         <Route path="/WordsPage" element={<WordsPage />} />
         <Route path="/ThesaurusPage" element={<ThesaurusPage />} />
         <Route path="/translatePage" element={<TranslatePage />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </>
   );

@@ -1,7 +1,7 @@
 /*
 Analyze the frequency word count data from the cookies.
 */
-import React, { useState } from "react";
+import React from "react";
 import "../../CSS/translate.css";
 
 import VisualizeGraphs from "./VisualizeGraphs";
