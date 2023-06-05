@@ -11,7 +11,11 @@ const SearchBar = ({ value, onChange, onSearch }) => {
       onSubmit={handleSubmit}
       className="input-group d-flex justify-content-center py-2"
     >
+      <label htmlFor="searchInput" className="sr-only">
+        Search
+      </label>
       <input
+        id="searchInput"
         className="form-control"
         type="text"
         value={value}
