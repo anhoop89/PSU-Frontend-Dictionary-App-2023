@@ -9,9 +9,9 @@ export default function Definition({ def, index }) {
           className="d-flex rounded "
           style={{ backgroundColor: 'var(--bs-dark)' }}
         >
-          <h4 className="mt-2 pl-3">
+          <h3 className="mt-2 pl-3">
             <i>{def.partOfSpeech}</i>
-          </h4>
+          </h3>
         </div>
       )}
       <div
