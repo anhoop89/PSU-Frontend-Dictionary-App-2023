@@ -22,16 +22,17 @@ const Authenication = () => {
     <>
       {!isAuthenticated && !isLoading ? (
         <li className="nav-item">
-          <a
+          <div
             className="nav-link active"
             id="tab-login"
             href="#login"
             role="tab"
             aria-selected="true"
             onClick={handleLoginClick}
+            style={{cursor:"pointer"}}
           >
             Log In
-          </a>
+          </div>
         </li>
       ) : (
         <li className="input-group nav-item">
@@ -42,16 +43,17 @@ const Authenication = () => {
           ) : (
             ""
           )}
-          <a
+          <div
             className="nav-link active"
             id="tab-logout"
             href="#logout"
             role="tab"
             aria-selected="true"
             onClick={handleLogoutClick}
+            style={{cursor:"pointer"}}
           >
             Log Out
-          </a>
+          </div>
         </li>
       )}
     </>
