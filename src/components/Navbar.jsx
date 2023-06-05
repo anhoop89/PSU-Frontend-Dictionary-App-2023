@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../img/logo_test.png";
+import logo from "../img/logo-book.png";
 import "../CSS/navbar.css";
 
 import { Route, Routes } from "react-router-dom";
@@ -42,8 +42,8 @@ const Navbar = () => {
               className="d-inline-block align-top"
               alt="icon-logo"
               src={logo}
-              width="45"
-              height="30"
+              width="47"
+              height="33"
             />
           </Link>
           <button
