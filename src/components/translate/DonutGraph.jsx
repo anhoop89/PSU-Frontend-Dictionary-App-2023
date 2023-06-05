@@ -17,7 +17,7 @@ const borderColors = [
   "rgba(153, 102, 255, 1)",
 ];
 
-const DonutGraphES = ({ getSortedWords }) => {
+const DonutGraph = ({ getSortedWords, lang}) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -29,11 +29,11 @@ const DonutGraphES = ({ getSortedWords }) => {
       }
 
       const labels = getSortedWords
-        .filter((word) => word.word.includes("-es"))
+        .filter((word) => word.word.includes(`${lang}`))
         .slice(0, 5)
         .map((word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`);
       const data = getSortedWords
-        .filter((word) => word.word.includes("-es"))
+        .filter((word) => word.word.includes(`${lang}`))
         .slice(0, 5)
         .map((word) => word.frequency);
 
@@ -99,4 +99,4 @@ const DonutGraphES = ({ getSortedWords }) => {
   );
 };
 
-export default DonutGraphES;
+export default DonutGraph;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DoughnutChartEN from "./DonutGraphEN";
-import DoughnutChartES from "./DonutGraphES";
+import DoughnutChart from "./DonutGraph";
+
 
 const VisualizeGraphs = ({ getSortedWords }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ const VisualizeGraphs = ({ getSortedWords }) => {
     >
       <div>
         <div className="custom-tab card-body d-flex border-bottom pb-3 rounded-3">
-          <h3 className="card-title text-light">Visualization - Graphs</h3>
+          <h3 className="card-title text-light">Top Translation Words - Graphs</h3>
           <div className="ml-auto p-2"> </div>
           {/* close/open tab */}
           {isOpen ? (
@@ -77,10 +77,10 @@ const VisualizeGraphs = ({ getSortedWords }) => {
             {getSortedWords.some((word) => word.word.includes("-en")) ? (
               <>
                 <h4 className="pt-2 pb-2">Top 5 English Translation Words</h4>
-                <DoughnutChartEN getSortedWords={getSortedWords} />
+                <DoughnutChart getSortedWords={getSortedWords} lang ={"-en"} />
               </>
             ) : (
-              <DoughnutChartEN getSortedWords={getSortedWords} />
+              <h4 className="pt-2 pb-2">No English Translaition Words</h4>
             )}
           </div>
         )}
@@ -88,14 +88,13 @@ const VisualizeGraphs = ({ getSortedWords }) => {
         {/* this handles the graph of the top ES translation words */}
         {!isOpen && isOpenTwo && (
           <div className="py-4 text-center">
-            {getSortedWords.some((word) => word.word.includes("-en")) ? (
+            {getSortedWords.some((word) => word.word.includes("-es")) ? (
               <>
                 <h4 className="pt-2 pb-2">Top 5 Spanish Translation Words</h4>
-                <DoughnutChartES getSortedWords={getSortedWords} />
+                <DoughnutChart getSortedWords={getSortedWords} lang ={"-es"} />
               </>
-            ) : (
-              <DoughnutChartES getSortedWords={getSortedWords} />
-            )}
+            ) : <h4 className="pt-2 pb-2">No Spanish Translaition Words</h4>
+            }
           </div>
         )}
       </div>
