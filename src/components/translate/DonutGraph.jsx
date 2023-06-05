@@ -17,7 +17,7 @@ const borderColors = [
   "rgba(153, 102, 255, 1)",
 ];
 
-const DonutGraph = ({ getSortedWords, lang}) => {
+const DonutGraph = ({ getSortedWords, lang }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const DonutGraph = ({ getSortedWords, lang}) => {
         chartInstance.destroy();
       }
     };
-  }, [getSortedWords]);
+  }, [getSortedWords, lang]);
 
   return (
     <div
