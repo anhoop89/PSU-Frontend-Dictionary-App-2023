@@ -4,7 +4,7 @@ This is a main page for the translate tab.
   This way, even if they accidentally close the tab or browser, reopening the translate tab 
     will still display the words they have previously translated.
 
-Supported components: translateBar, visualizeFrequency 
+Supported components: translateBar, visualize Translation Words History 
 */
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -93,7 +93,7 @@ const TranslatePage = () => {
           const newFrequency = isNaN(Number(wordFrequency))
             ? 1
             : Number(wordFrequency) + 1;
-          Cookies.set(wordInCookies, newFrequency);
+          Cookies.set(wordInCookies, newFrequency)
         }
       } else if (
         fetchData &&
