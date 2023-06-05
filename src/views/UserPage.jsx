@@ -1,9 +1,9 @@
-import Admin from '../components/admin';
+import User from '../components/UserInfo';
 
 export default function AdminPage() {
   return (
     <>
-      <Admin />
+      <User />
     </>
   );
 }

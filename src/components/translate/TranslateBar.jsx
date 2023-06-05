@@ -2,19 +2,28 @@ import React from "react";
 
 const TranslateBar = ({
   translateFrom,
-  translateTo,
   setTranslateFrom,
   setTranslateTo,
   getWord,
   setWord,
   translate,
   searching,
+  prevWord,
 }) => {
   const TranslateFromOption = (e) => {
     const selectedFrom = e.target.value;
     const selectedTo = selectedFrom === "en" ? "es" : "en";
     setTranslateFrom(selectedFrom);
     setTranslateTo(selectedTo);
+  };
+  const pressEnterTranslate = () => {
+    // Don't perform translation if it's the same word
+    // and already succesfully return a good result
+    if (getWord === prevWord) {
+      return; 
+    }
+    // Call the translate function passed as prop
+    translate();
   };
 
   return (
@@ -32,7 +41,7 @@ const TranslateBar = ({
           id="translateFromOption"
           value={translateFrom}
           onChange={TranslateFromOption}
-          style={{ width: "100px", cursor:"pointer" }}
+          style={{ width: "100px", cursor: "pointer" }}
         >
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -65,6 +74,11 @@ const TranslateBar = ({
           value={getWord}
           onChange={(e) => setWord(e.target.value)}
           style={{ width: "220px" }}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              pressEnterTranslate();
+            }
+          }}
         />
         <button
           className="btn btn-primary border border-dark "
