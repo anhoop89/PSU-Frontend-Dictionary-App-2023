@@ -148,9 +148,9 @@ const TranslatePage = () => {
                 height: "70%",
               }}
             >
-              <h3 className="text-center text-light border-bottom pb-3 mb-3 rounded-3">
+              <h2 className="text-center text-light border-bottom pb-3 mb-3 rounded-3">
                 Result
-              </h3>
+              </h2>
               {translation && <p>{translation}</p>}
             </div>
           </div>

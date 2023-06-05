@@ -41,7 +41,7 @@ const TranslateBar = ({
           id="translateFromOption"
           value={translateFrom}
           onChange={TranslateFromOption}
-          style={{ width: "100px", cursor: "pointer" }}
+          style={{ width: "100px", padding: "5.5px", cursor: "pointer" }}
         >
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -58,7 +58,7 @@ const TranslateBar = ({
         </div>
         <div
           id="translateToOption"
-          className="bg-white text-dark rounded border border-dark fw-bold"
+          className="bg-light text-dark rounded border border-dark fw-bold"
           style={{ width: "100px", padding: "5.5px" }}
         >
           {translateFrom === "es" ? <span>English</span> : null}
@@ -67,7 +67,9 @@ const TranslateBar = ({
       </div>
 
       <div className="input-group mb-3">
+        <label htmlFor="wordInput" className="sr-only">Enter Word:</label>
         <input
+          id="wordInput"
           type="text"
           className="form-control rounded"
           placeholder="Enter word"
@@ -81,12 +83,19 @@ const TranslateBar = ({
           }}
         />
         <button
-          className="btn btn-primary border border-dark "
-          onClick={translate}
-          style={{ width: "100px" }}
-        >
-          <span>Translate</span>
-        </button>
+  className="btn btn-primary rounded border border-dark"
+  onClick={translate}
+  style={{
+    width: "100px",
+    height: "45px",
+    font: "20px",
+    color: "#ffffff",
+    background: "#0070ba",
+  }}
+>
+  <strong>Translate</strong>
+</button>
+
       </div>
       {searching && <p>Searching...</p>}
     </div>
