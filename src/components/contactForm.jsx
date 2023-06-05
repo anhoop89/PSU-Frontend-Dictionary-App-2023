@@ -22,13 +22,13 @@ function ContactForm() {
       return;
     }
 
-    const emailfilter =/^\w+[+.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+    const emailfilter = /^\w+[+.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
     const checkEmailForm = emailfilter.test(email);
     if (!checkEmailForm) {
       alert("Please enter a valid email");
       return;
     }
-    
+
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Suggestion:", suggestion);
