@@ -20,7 +20,7 @@ const TranslateBar = ({
     // Don't perform translation if it's the same word
     // and already succesfully return a good result
     if (getWord === prevWord) {
-      return; 
+      return;
     }
     // Call the translate function passed as prop
     translate();
@@ -67,7 +67,9 @@ const TranslateBar = ({
       </div>
 
       <div className="input-group mb-3">
-        <label htmlFor="wordInput" className="sr-only">Enter Word:</label>
+        <label htmlFor="wordInput" className="sr-only">
+          Enter Word:
+        </label>
         <input
           id="wordInput"
           type="text"
@@ -83,19 +85,18 @@ const TranslateBar = ({
           }}
         />
         <button
-  className="btn btn-primary rounded border border-dark"
-  onClick={translate}
-  style={{
-    width: "100px",
-    height: "45px",
-    font: "20px",
-    color: "#ffffff",
-    background: "#0070ba",
-  }}
->
-  <strong>Translate</strong>
-</button>
-
+          className="btn btn-primary rounded border border-dark"
+          onClick={translate}
+          style={{
+            width: "100px",
+            height: "45px",
+            font: "20px",
+            color: "#ffffff",
+            background: "#0070ba",
+          }}
+        >
+          <strong>Translate</strong>
+        </button>
       </div>
       {searching && <p>Searching...</p>}
     </div>
