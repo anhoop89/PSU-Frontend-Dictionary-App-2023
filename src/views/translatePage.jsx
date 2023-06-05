@@ -13,7 +13,7 @@ import TranslateBar from "../components/translate/TranslateBar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cookies from "js-cookie";
-import WordHistoryCounts from "../components/translate/WordHistoryCounts";
+import AnalyzeWordCount from "../components/translate/AnalyzeWordCount";
 import "../CSS/translate.css";
 
 const TranslatePage = () => {
@@ -157,7 +157,7 @@ const TranslatePage = () => {
         </div>
         {/* visulization */}
         <div>
-          <WordHistoryCounts getSortedWords={getSortedWords} />
+          <AnalyzeWordCount getSortedWords={getSortedWords} />
         </div>
       </div>
     </section>

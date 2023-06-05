@@ -5,9 +5,7 @@ Display the words with the name and frequency
 import React, { useState } from "react";
 import "../../CSS/translate.css";
 
-import VisualizeGraphs from "./VisualizeGraphs";
-
-const WordHistoryCounts = ({ getSortedWords }) => {
+const TranslationHistory = ({ getSortedWords }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -120,12 +118,8 @@ const WordHistoryCounts = ({ getSortedWords }) => {
         )}
       </div>
     </div>
-    {getSortedWords.length > 0 ? (          
-      <VisualizeGraphs getSortedWords = {getSortedWords}/>
-    ):null
-    }
     </>
   );
 };
 
-export default WordHistoryCounts;
+export default TranslationHistory;
