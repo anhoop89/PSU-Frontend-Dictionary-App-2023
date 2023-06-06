@@ -23,43 +23,45 @@ const TranslationHistory = ({ getSortedWords }) => {
     setShowAllES(!showAllES);
   };
   // displaying words based on language
-  const displayWords = (language, showAll) => {
-    const words = getSortedWords
-      .filter((word) => word.word.includes(`${language}`))
-      // Reverse the array to display the most recent words on the top
-      .reverse(); 
+// displaying words based on language
+const displayWords = (language, showAll) => {
+  const words = getSortedWords
+    .filter((word) => word.word.includes(`${language}`))
+    .reverse(); // Reverse the array to display recent words on top
 
-    if (!showAll) {
-      // Show only 5 words when "Show Less" is hidden
-      words.splice(5); 
-    }
+  if (!showAll) {
+    // Display only 5 words when "Show All" button is off
+    words.splice(5); 
+  }
 
-    return words.map((word, index) => (
-      <li
-        className={`custom-border list-group-item d-flex justify-content-between align-items-center bg-dark ${
-          index === 0 ? "highlight" : ""
-        }`}
+  return words.map((word, index) => (
+    <li
+      className={`custom-border list-group-item d-flex justify-content-between align-items-center bg-dark`}
+      style={{
+        height: "70%",
+        // Make the most recent word obvious 
+        fontWeight: index === 0 ? "bold" : "normal",
+        fontSize: index === 0 ? "1.4em" : "inherit",
+      }}
+      key={index}
+    >
+      {/* remove -en or -es for a word */}
+      {word.word.slice(0, -3)}
+
+      <span
+        className="badge bg-primary text-white rounded-pill fw-bold"
         style={{
-          height: "70%",
+          backgroundColor: "#0070ba",
+          padding: "10px",
+          fontSize: "20px",
         }}
-        key={index}
       >
-        {/* remove -en or -es for a word */}
-        {word.word.slice(0, -3)}
+        {word.frequency}
+      </span>
+    </li>
+  ));
+};
 
-        <span
-          className="badge bg-primary text-white rounded-pill fw-bold"
-          style={{
-            backgroundColor: "#0070ba",
-            padding: "10px",
-            fontSize: "20px",
-          }}
-        >
-          {word.frequency}
-        </span>
-      </li>
-    ));
-  };
 
   // count the total of unique EN translation words
   const countENWords = () => {
