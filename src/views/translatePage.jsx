@@ -7,35 +7,35 @@ This is a main page for the translate tab.
 Supported components: translateBar, visualize Translation Words History 
 */
 
-import React, { useState, useEffect, useCallback } from "react";
-import WebsterAPI from "../api/WebsterAPI";
-import TranslateBar from "../components/translate/TranslateBar";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Cookies from "js-cookie";
-import AnalyzeWordCount from "../components/translate/AnalyzeWordCount";
-import "../CSS/translate.css";
+import React, { useState, useEffect, useCallback } from 'react';
+import WebsterAPI from '../api/WebsterAPI';
+import TranslateBar from '../components/translate/TranslateBar';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import Cookies from 'js-cookie';
+import AnalyzeWordCount from '../components/translate/AnalyzeWordCount';
+import '../CSS/translate.css';
 
 const TranslatePage = () => {
-  const [getWord, setWord] = useState(""); // input
+  const [getWord, setWord] = useState(''); // input
   const [translation, setTranslation] = useState(null);
-  const [translateFrom, setTranslateFrom] = useState("en");
-  const [translateTo, setTranslateTo] = useState("es");
+  const [translateFrom, setTranslateFrom] = useState('en');
+  const [translateTo, setTranslateTo] = useState('es');
   const [searching, setSearching] = useState(false);
   const [getTransResult, setTransResult] = useState(false); // check trans result
   const [getSortedWords, setSortedWords] = useState([]);
-  const [prevWord, setPrevWord] = useState("");
+  const [prevWord, setPrevWord] = useState('');
 
   const sortedWordFrequency = useCallback(() => {
     const cookies = Cookies.get();
-    console.log("Cookies:", cookies);
+    console.log('Cookies:', cookies);
     const wordFrequencies = Object.entries(cookies)
       .filter(([key, value]) => {
-        if (key === "undefined" || isNaN(Number(value))) {
-          console.log("Invalid cookies");
+        if (key === 'undefined' || isNaN(Number(value))) {
+          console.log('Invalid cookies');
           return false;
         } else {
-          console.log("Valid cookies");
+          console.log('Valid cookies');
           return true;
         }
       })
@@ -61,26 +61,26 @@ const TranslatePage = () => {
       const fetchData = await WebsterAPI(getWord);
       // console.log(fetchData);
       // default translation.
-      let translation = "Translation not found";
+      let translation = 'Translation not found';
       // default storing the words in cookies.
       let wordInCookies = null;
       // check the API data. If good, display the data and store them into cookies
       if (fetchData && Array.isArray(fetchData) && fetchData.length > 0) {
         const wordData = fetchData[0];
-        if (translateFrom === "en" && wordData.meta.lang === "en") {
+        if (translateFrom === 'en' && wordData.meta.lang === 'en') {
           // get an result of the translation.
           translation = wordData.shortdef[0];
           // add -en to get all the english words into a group
-          wordInCookies = getWord.toLowerCase() + "-en";
+          wordInCookies = getWord.toLowerCase() + '-en';
           setTransResult(true);
-        } else if (translateFrom === "es" && wordData.meta.lang === "es") {
+        } else if (translateFrom === 'es' && wordData.meta.lang === 'es') {
           translation = wordData.shortdef[0];
           // add -es to get all the english words into a group
-          wordInCookies = getWord.toLowerCase() + "-es";
+          wordInCookies = getWord.toLowerCase() + '-es';
           setTransResult(true);
         } else {
           translation = `Warning: You entered a ${
-            translateFrom === "en" ? "Spanish" : "English"
+            translateFrom === 'en' ? 'Spanish' : 'English'
           } word`;
           setTransResult(false);
         }
@@ -93,7 +93,7 @@ const TranslatePage = () => {
           const newFrequency = isNaN(Number(wordFrequency))
             ? 1
             : Number(wordFrequency) + 1;
-          Cookies.set(wordInCookies, newFrequency)
+          Cookies.set(wordInCookies, newFrequency);
         }
       } else if (
         fetchData &&
@@ -113,18 +113,19 @@ const TranslatePage = () => {
       setSearching(false);
     }
     setPrevWord(getWord);
-    console.log("checking getSortedWords " + getSortedWords);
+    console.log('checking getSortedWords ' + getSortedWords);
   };
 
   return (
     <section
       className="Define-Section text-light mx-auto mt-5"
-      style={{ maxWidth: "768px", backgroundColor: "var(--bs-darker)" }}
+      style={{ maxWidth: '768px', backgroundColor: 'var(--bs-darker)' }}
     >
       <div className="container ">
-        <h1 className="text-center m-auto pb-4">
-          Let's explore and translate a word!
-        </h1>
+        <h1 className="text-center m-auto pb-4">English/Spanish Translation</h1>
+        <h3 className="text-center m-auto pb-4" style={{ color: '#CCCCCC' }}>
+          Keep count of your commonly translated words!
+        </h3>
         <div className="row">
           <div className="col" data-aos="fade-up-right" data-aos-duration="500">
             <div className="input-group mb-3">
@@ -145,12 +146,12 @@ const TranslatePage = () => {
             <div
               className="custom-border card-body mt-3 rounded"
               style={{
-                height: "70%",
+                height: '70%',
               }}
             >
-              <h3 className="text-center text-light border-bottom pb-3 mb-3 rounded-3">
+              <h2 className="text-center text-light border-bottom pb-3 mb-3 rounded-3">
                 Result
-              </h3>
+              </h2>
               {translation && <p>{translation}</p>}
             </div>
           </div>

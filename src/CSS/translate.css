@@ -11,5 +11,11 @@
   }
 
   .custom-tab{
-    background-color: rgba(168, 32, 32, 0.719) !important;
+    background-color: rgba(36, 161, 177, 0.671) !important;
   }
+
+  .custom-button:hover {
+    background-color: #2b819b; 
+    color: #ffffff; 
+  }
+  

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SearchBar = ({ value, onChange, onSearch }) => {
   const handleSubmit = (event) => {
@@ -11,26 +11,30 @@ const SearchBar = ({ value, onChange, onSearch }) => {
       onSubmit={handleSubmit}
       className="input-group d-flex justify-content-center py-2"
     >
+      <label htmlFor="searchInput" className="sr-only">
+        Search
+      </label>
       <input
+        id="searchInput"
         className="form-control"
         type="text"
         value={value}
         onChange={onChange}
         style={{
-          borderRadius: "1rem 0 0 1rem",
-          maxWidth: "720px",
-          height: "40px",
+          borderRadius: '1rem 0 0 1rem',
+          maxWidth: '720px',
+          height: '40px',
         }}
       />
       <button
         type="submit"
-        className="btn btn-danger"
+        className="btn btn-primary"
         aria-label="Search-button"
         disabled={!value}
         style={{
-          borderRadius: "0 1rem 1rem 0",
-          width: "48px",
-          height: "40px",
+          borderRadius: '0 1rem 1rem 0',
+          width: '48px',
+          height: '40px',
         }}
       >
         <svg

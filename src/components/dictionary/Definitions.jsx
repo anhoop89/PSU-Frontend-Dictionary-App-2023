@@ -28,12 +28,15 @@ export default function Definitions({ data }) {
   return (
     <div className="py-4">
       <h1
-        className="card-header rounded text-capitalize mt-2"
-        style={{ backgroundColor: 'var(--bs-darker)', fontSize: '3rem' }}
+        className="card-header rounded-top border-bottom text-capitalize mt-2"
+        style={{
+          backgroundColor: 'rgba(36, 161, 177, 0.671)',
+          fontSize: '3rem',
+        }}
       >
         {data.word}
       </h1>
-      <div className="rounded border border-secondary">
+      <div className="rounded-bottom border border-secondary">
         {defs.map(
           (def, index) =>
             index < defsVisible && (

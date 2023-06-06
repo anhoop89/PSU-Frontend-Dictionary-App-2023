@@ -28,6 +28,18 @@ const WordsPage = () => {
         display: false,
       },
     },
+    scales: {
+      y: {
+        grid: {
+          // color: '#2b819b',
+        },
+      },
+      x: {
+        grid: {
+          color: '#2b819b',
+        },
+      },
+    },
   };
 
   // Update the list of words and frequencies to use as data for the bar chart.
@@ -59,8 +71,7 @@ const WordsPage = () => {
         {
           data: freqArray,
           borderWidth: 2,
-          borderColor: '#888888',
-          backgroundColor: '#994444',
+          backgroundColor: '#2b819b',
           maxBarThickness: 50,
         },
       ],
@@ -82,9 +93,13 @@ const WordsPage = () => {
       className="Define-Section text-light mx-auto mt-5"
       style={{ maxWidth: '768px', backgroundColor: 'var(--bs-darker)' }}
     >
-      <h1 className="Define-H1 text-center m-auto pb-4">
-        Start Exploring and Searching for Words in the Dictionary
-      </h1>
+      <h1 className="Define-H1 text-center m-auto pb-4">Dictionary</h1>
+      <h3
+        className="Define-H1 text-center m-auto pb-4"
+        style={{ color: '#CCCCCC' }}
+      >
+        Compare the frequencies of different words!
+      </h3>
       <SearchBar
         value={word}
         onChange={(e) => setWord(e.target.value.trim())}

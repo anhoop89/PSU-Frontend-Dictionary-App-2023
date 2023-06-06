@@ -20,7 +20,7 @@ const TranslateBar = ({
     // Don't perform translation if it's the same word
     // and already succesfully return a good result
     if (getWord === prevWord) {
-      return; 
+      return;
     }
     // Call the translate function passed as prop
     translate();
@@ -41,7 +41,7 @@ const TranslateBar = ({
           id="translateFromOption"
           value={translateFrom}
           onChange={TranslateFromOption}
-          style={{ width: "100px", cursor: "pointer" }}
+          style={{ width: "100px", padding: "5.5px", cursor: "pointer" }}
         >
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -58,7 +58,7 @@ const TranslateBar = ({
         </div>
         <div
           id="translateToOption"
-          className="bg-white text-dark rounded border border-dark fw-bold"
+          className="bg-light text-dark rounded border border-dark fw-bold"
           style={{ width: "100px", padding: "5.5px" }}
         >
           {translateFrom === "es" ? <span>English</span> : null}
@@ -67,7 +67,11 @@ const TranslateBar = ({
       </div>
 
       <div className="input-group mb-3">
+        <label htmlFor="wordInput" className="sr-only">
+          Enter Word:
+        </label>
         <input
+          id="wordInput"
           type="text"
           className="form-control rounded"
           placeholder="Enter word"
@@ -81,11 +85,17 @@ const TranslateBar = ({
           }}
         />
         <button
-          className="btn btn-primary border border-dark "
+          className="btn btn-primary rounded border border-dark"
           onClick={translate}
-          style={{ width: "100px" }}
+          style={{
+            width: "100px",
+            height: "45px",
+            font: "20px",
+            color: "#ffffff",
+            background: "#0070ba",
+          }}
         >
-          <span>Translate</span>
+          <strong>Translate</strong>
         </button>
       </div>
       {searching && <p>Searching...</p>}

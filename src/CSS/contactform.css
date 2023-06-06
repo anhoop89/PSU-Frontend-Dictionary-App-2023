@@ -1,0 +1,20 @@
+.formCustom {
+    border: 2px solid #fafafab0;
+    text-align: left;
+    justify-content: center;   
+    border-radius: 25px;
+    box-shadow: 0px 10px 15px rgba(51, 49, 51, 0.233) !important;
+    backdrop-filter: blur(10px);
+    color: rgb(22, 21, 21);
+  }
+  
+  .formCustom .form-control {
+    border: 1px solid #3d405b;
+    box-shadow: 0 10px 20px rgba(14, 13, 13, 0.1);
+    border-radius: 20px;
+  }
+  
+  .formCustom .form-control:hover {
+    box-shadow: 0 0 5px 1px #4ecfe6;
+  }
+  

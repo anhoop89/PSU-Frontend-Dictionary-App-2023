@@ -37,7 +37,15 @@ const TranslationHistory = ({ getSortedWords }) => {
         >
           {/* remove -en or -es for a word */}
           {word.word.slice(0, -3)}
-          <span className="badge bg-primary rounded-pill">
+
+          <span
+            className="badge bg-primary text-white rounded-pill fw-bold"
+            style={{
+              backgroundColor: "#0070ba",
+              padding: "10px",
+              fontSize: "20px",
+            }}
+          >
             {word.frequency}
           </span>
         </li>
@@ -93,16 +101,20 @@ const TranslationHistory = ({ getSortedWords }) => {
                     ) ? (
                       <div>
                         <h4 className="pt-2 pb-2">English Words</h4>
-                        <ul className="list-group">{displayWords("-en", showAllEN)} </ul>
+                        <ul className="list-group">
+                          {displayWords("-en", showAllEN)}{" "}
+                        </ul>
                         {/*  */}
                         {getSortedWords.length > 5 && (
                           <button
-                            className="btn btn-primary mt-2"
+                            className="btn btn-secondary mt-2 mb-3 custom-button"
                             onClick={toggleShowAllEN}
                           >
                             {showAllEN ? "Show Less" : "Show All"}
                           </button>
                         )}
+
+                        <div className=" border-bottom pb-3"> </div>
                       </div>
                     ) : null}
 
@@ -110,12 +122,14 @@ const TranslationHistory = ({ getSortedWords }) => {
                       word.word.includes("-es")
                     ) ? (
                       <div>
-                        <h4 className="pt-2 pb-2">Spanish Words</h4>
-                        <ul className="list-group">{displayWords("-es", showAllES)} </ul>
+                        <h4 className="pt-4 pb-2">Spanish Words</h4>
+                        <ul className="list-group">
+                          {displayWords("-es", showAllES)}{" "}
+                        </ul>
                         {/*  */}
                         {getSortedWords.length > 5 && (
                           <button
-                            className="btn btn-primary mt-2"
+                            className="btn btn-secondary mt-2 mb-3 custom-button"
                             onClick={toggleShowAllES}
                           >
                             {showAllES ? "Show Less" : "Show All"}
