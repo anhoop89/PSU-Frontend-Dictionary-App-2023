@@ -12,9 +12,6 @@ const ProgressBar = ({ count }) => {
 
   useEffect(() => {
     setWordCount((count % 10) * 10);
-  }, [count]);
-
-  useEffect(() => {
     if (count % 10 === 0) {
       setDisplayText('Nice!');
       setPathColor(getRandomColor()); // Set a new color
