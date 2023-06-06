@@ -36,7 +36,6 @@ const WordsPage = () => {
       },
       x: {
         grid: {
-          // color: 'var(--bs-dark)',
           color: '#2b819b',
         },
       },
@@ -72,7 +71,6 @@ const WordsPage = () => {
         {
           data: freqArray,
           borderWidth: 2,
-          borderColor: '#888888',
           backgroundColor: '#2b819b',
           maxBarThickness: 50,
         },
