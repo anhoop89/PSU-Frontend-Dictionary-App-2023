@@ -28,14 +28,15 @@ const DonutGraph = ({ getSortedWords, lang }) => {
         chartInstance.destroy();
       }
 
-      const labels = getSortedWords
+      const sortedWords = getSortedWords
         .filter((word) => word.word.includes(`${lang}`))
         .slice(0, 5)
-        .map((word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`);
-      const data = getSortedWords
-        .filter((word) => word.word.includes(`${lang}`))
-        .slice(0, 5)
-        .map((word) => word.frequency);
+        .sort((a, b) => b.frequency - a.frequency);
+
+      const labels = sortedWords.map(
+        (word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`
+      );
+      const data = sortedWords.map((word) => word.frequency);
 
       const chartData = {
         labels,

@@ -24,34 +24,41 @@ const TranslationHistory = ({ getSortedWords }) => {
   };
   // displaying words based on language
   const displayWords = (language, showAll) => {
-    const maxWordsDisplay = showAll ? getSortedWords.length : 5;
-
-    return getSortedWords
+    const words = getSortedWords
       .filter((word) => word.word.includes(`${language}`))
-      .slice(0, maxWordsDisplay)
-      .map((word, index) => (
-        <li
-          className="custom-border list-group-item d-flex justify-content-between align-items-center bg-dark"
-          style={{
-            height: "70%",
-          }}
-          key={index}
-        >
-          {/* remove -en or -es for a word */}
-          {word.word.slice(0, -3)}
+      // Reverse the array to display the most recent words on the top
+      .reverse(); 
 
-          <span
-            className="badge bg-primary text-white rounded-pill fw-bold"
-            style={{
-              backgroundColor: "#0070ba",
-              padding: "10px",
-              fontSize: "20px",
-            }}
-          >
-            {word.frequency}
-          </span>
-        </li>
-      ));
+    if (!showAll) {
+      // Show only 5 words when "Show Less" is hidden
+      words.splice(5); 
+    }
+
+    return words.map((word, index) => (
+      <li
+        className={`custom-border list-group-item d-flex justify-content-between align-items-center bg-dark ${
+          index === 0 ? "highlight" : ""
+        }`}
+        style={{
+          height: "70%",
+        }}
+        key={index}
+      >
+        {/* remove -en or -es for a word */}
+        {word.word.slice(0, -3)}
+
+        <span
+          className="badge bg-primary text-white rounded-pill fw-bold"
+          style={{
+            backgroundColor: "#0070ba",
+            padding: "10px",
+            fontSize: "20px",
+          }}
+        >
+          {word.frequency}
+        </span>
+      </li>
+    ));
   };
 
   // count the total of unique EN translation words
@@ -61,7 +68,7 @@ const TranslationHistory = ({ getSortedWords }) => {
     ).length;
     return enWordsCount;
   };
-  
+
   // count the total of unique ES translation words
   const countESWords = () => {
     const esWordsCount = getSortedWords.filter((word) =>

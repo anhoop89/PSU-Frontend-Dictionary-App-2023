@@ -42,7 +42,7 @@ const TranslatePage = () => {
       //storing the word and frequency in an object of the cookies.
       .map(([key, value]) => ({ word: key, frequency: Number(value) }))
       //sorting the words to dipslay from the top to bottom.
-      .sort((a, b) => b.frequency - a.frequency);
+      // .sort((a, b) => b.frequency - a.frequency);
     setSortedWords(wordFrequencies);
   }, []);
 
