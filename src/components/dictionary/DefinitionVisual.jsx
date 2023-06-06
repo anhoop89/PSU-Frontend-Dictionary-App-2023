@@ -11,10 +11,13 @@ export default function DefinitionVisual({ barData, graphOptions }) {
   Chart.defaults.color = '#ffffff';
 
   return (
-    <div className="rounded border border-secondary my-5">
+    <div
+      className="rounded border border-secondary my-5"
+      style={{ backgroundColor: 'var(--bs-darker)' }}
+    >
       <div
         className="d-flex rounded px-3"
-        style={{ maxWidth: '768', backgroundColor: 'var(--bs-darkest)' }}
+        style={{ maxWidth: '768', backgroundColor: 'var(--bs-dark)' }}
       >
         <div>
           <h4 className="mt-2">Word Frequency</h4>

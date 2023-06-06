@@ -9,7 +9,10 @@ export default function Definition({ def, index }) {
           className="d-flex rounded "
           style={{ backgroundColor: 'var(--bs-dark)' }}
         >
-          <h3 className="mt-2 pl-3">
+          <h3
+            className="mt-2 pl-3"
+            style={{ fontWeight: 'normal', fontSize: '1.2rem' }}
+          >
             <i>{def.partOfSpeech}</i>
           </h3>
         </div>
@@ -17,21 +20,25 @@ export default function Definition({ def, index }) {
       <div
         onMouseEnter={() => setHovering(index)}
         onMouseLeave={() => setHovering(-1)}
-        className="card-body p-3 rounded border border-dark"
+        className="card-body p-3 rounded"
         style={
           hovering === index
             ? { backgroundColor: 'var(--bs-dark)' }
             : { backgroundColor: 'var(--bs-darker)' }
         }
       >
-        <div className="d-flex font-weight-bold font">
+        <div className="d-flex font">
           <div
             className="mr-3"
-            style={{ fontSize: '1.20rem', minWidth: '30px' }}
+            style={{
+              fontSize: '1.2rem',
+              minWidth: '30px',
+              fontWeight: 'bold',
+            }}
           >
             {index + 1}.
           </div>
-          <div className="cap-first definition-text">
+          <div className="cap-first" style={{ fontSize: '1.2rem' }}>
             {def.definition.toString()}.
           </div>
         </div>

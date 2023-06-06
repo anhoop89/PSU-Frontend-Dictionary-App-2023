@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-import logo from "../img/logo-book.png";
-import "../CSS/navbar.css";
+import { Link } from 'react-router-dom';
+import logo from '../img/logo-book.png';
+import '../CSS/navbar.css';
 
-import { Route, Routes } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 
-import HomePage from "../views/homePage";
-import ContactPage from "../views/contactPage";
-import WordsPage from "../views/WordsPage";
-import ThesaurusPage from "../views/ThesaurusPage";
-import TranslatePage from "../views/translatePage";
-import UserPage from "../views/UserPage";
-import Authenication from "../components/Authentication";
+import ContactPage from '../views/contactPage';
+import WordsPage from '../views/WordsPage';
+import ThesaurusPage from '../views/ThesaurusPage';
+import TranslatePage from '../views/translatePage';
+import UserPage from '../views/UserPage';
+import Authenication from '../components/Authentication';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +27,9 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
   return (
@@ -60,30 +59,30 @@ const Navbar = () => {
           </button>
           <div
             className={`collapse navbar-collapse justify-content-between Larger shadow ${
-              isOpen ? "show" : ""
+              isOpen ? 'show' : ''
             }`}
             ref={dispearMenu}
             id="navbarNav"
           >
             <ul className="navbar-nav">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Home
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item">
-                <Link className="nav-link" to="/WordsPage">
-                  Words
+                <Link className="nav-link" to="/">
+                  Dictionary
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/ThesaurusPage">
+                <Link className="nav-link" to="/thesaurus">
                   Thesaurus
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/translatePage">
+                <Link className="nav-link" to="/translate">
                   Translate
                 </Link>
               </li>
@@ -102,11 +101,10 @@ const Navbar = () => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<WordsPage />} />
+        <Route path="/thesaurus" element={<ThesaurusPage />} />
+        <Route path="/translate" element={<TranslatePage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/WordsPage" element={<WordsPage />} />
-        <Route path="/ThesaurusPage" element={<ThesaurusPage />} />
-        <Route path="/translatePage" element={<TranslatePage />} />
         <Route path="/user" element={<UserPage />} />
       </Routes>
     </>
