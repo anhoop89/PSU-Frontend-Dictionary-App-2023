@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import WordsAPI from '../api/WordsAPI';
-import SearchBar from '../components/SearchBar';
-import Definitions from '../components/dictionary/Definitions';
-import DefinitionVisual from '../components/dictionary/DefinitionVisual';
-import NoResultsMessage from '../components/NoResultsMessage';
-import LoadingAnimation from '../components/LoadingAnimation';
+import React, { useState, useEffect } from "react";
+import WordsAPI from "../api/WordsAPI";
+import SearchBar from "../components/SearchBar";
+import Definitions from "../components/dictionary/Definitions";
+import DefinitionVisual from "../components/dictionary/DefinitionVisual";
+import NoResultsMessage from "../components/NoResultsMessage";
+import LoadingAnimation from "../components/LoadingAnimation";
 
 const WordsPage = () => {
-  const [word, setWord] = useState('');
+  const [word, setWord] = useState("");
   const [data, setData] = useState(null);
-  const [searchedWord, setSearchedWord] = useState('');
+  const [searchedWord, setSearchedWord] = useState("");
   const [searchAttempt, setSearchAttempt] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [wordArray, setWordArray] = useState([]);
@@ -19,7 +19,7 @@ const WordsPage = () => {
   const maxChartData = 10;
 
   const graphOptions = {
-    indexAxis: 'y',
+    indexAxis: "y",
     plugins: {
       title: {
         display: false,
@@ -36,7 +36,7 @@ const WordsPage = () => {
       },
       x: {
         grid: {
-          color: '#2b819b',
+          color: "#2b819b",
         },
       },
     },
@@ -71,7 +71,7 @@ const WordsPage = () => {
         {
           data: freqArray,
           borderWidth: 2,
-          backgroundColor: '#2b819b',
+          backgroundColor: "#2b819b",
           maxBarThickness: 50,
         },
       ],
@@ -91,15 +91,15 @@ const WordsPage = () => {
   return (
     <section
       className="Define-Section text-light mx-auto mt-5"
-      style={{ maxWidth: '768px', backgroundColor: 'var(--bs-darker)' }}
+      style={{ maxWidth: "768px", backgroundColor: "var(--bs-darker)" }}
     >
       <h1 className="Define-H1 text-center m-auto pb-4">Dictionary</h1>
-      <h3
+      <h2
         className="Define-H1 text-center m-auto pb-4"
-        style={{ color: '#CCCCCC' }}
+        style={{ color: "#CCCCCC", fontSize: "26.5px" }}
       >
         Compare the frequencies of different words!
-      </h3>
+      </h2>
       <SearchBar
         value={word}
         onChange={(e) => setWord(e.target.value.trim())}
