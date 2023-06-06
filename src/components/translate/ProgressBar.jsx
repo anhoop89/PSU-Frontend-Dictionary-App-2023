@@ -33,7 +33,7 @@ const ProgressBar = ({ count }) => {
   };
 
   return (
-    <div> 
+    <div data-aos="zoom-in"> 
     <div className='mx-auto' style={{ width: '70%' }}>
       <div className="">
         <CircularProgressbar

@@ -85,7 +85,8 @@ const DonutGraph = ({ getSortedWords, lang }) => {
   return (
     <div
       className="bg-dark rounded mx-auto p-4 mt-3 d-flex 
-                justify-content-center align-items-center border"
+                justify-content-center align-items-center border
+                "
       style={{ width: "90%", backgroundColor: "var(--bs-darker)" }}
     >
       <canvas
