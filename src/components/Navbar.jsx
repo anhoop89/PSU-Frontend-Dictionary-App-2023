@@ -36,15 +36,13 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid text-light">
-          <Link className="navbar-brand" to="/">
-            <img
-              className="d-inline-block align-top"
+        <img
+              className="d-inline-block align-top mr-2"
               alt="icon-logo"
               src={logo}
               width="47"
               height="33"
-            />
-          </Link>
+          />
           <button
             className="navbar-toggler"
             type="button"
