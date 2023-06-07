@@ -30,8 +30,9 @@ const DonutGraph = ({ getSortedWords, lang }) => {
 
       const sortedWords = getSortedWords
         .filter((word) => word.word.includes(`${lang}`))
-        .slice(0, 5)
-        .sort((a, b) => b.frequency - a.frequency);
+        .sort((a, b) => b.frequency - a.frequency)
+        .slice(0, 5);
+        
 
       const labels = sortedWords.map(
         (word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`
