@@ -20,6 +20,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: declare the API keys
+        run: cp .env.default .env
 
       - name: Build project
         run: npm run build  # Replace with your build command if necessary
