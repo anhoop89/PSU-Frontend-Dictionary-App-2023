@@ -23,6 +23,7 @@
 
 body {
   background-color: var(--bs-darker);
+  margin-bottom: 200px !important;
 }
 
 nav {

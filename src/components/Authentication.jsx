@@ -38,7 +38,10 @@ const Authenication = () => {
         <li className="input-group nav-item">
           {isAuthenticated ? (
             <Link className="nav-link" to="/user">
-              <span className="pt-2 text-info">Welcome {user.name},&nbsp;</span>
+              <strong className="pt-2"
+                style={{ color: "#19A7CE"}}
+              >Welcome {user.name},&nbsp;
+              </strong>
             </Link>
           ) : (
             ""

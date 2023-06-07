@@ -20,7 +20,7 @@ export default function DefinitionVisual({ barData, graphOptions }) {
         style={{ maxWidth: '768', backgroundColor: 'var(--bs-dark)' }}
       >
         <div>
-          <h4 className="mt-2">Word Frequency</h4>
+          <h2 className="mt-2">Word Frequency</h2>
         </div>
         <div className="ml-auto align-items-center">
           <button

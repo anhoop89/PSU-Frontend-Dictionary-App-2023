@@ -9,12 +9,12 @@ export default function Definition({ def, index }) {
           className="d-flex rounded "
           style={{ backgroundColor: 'var(--bs-dark)' }}
         >
-          <h3
+          <h2
             className="mt-2 pl-3"
             style={{ fontWeight: 'normal', fontSize: '1.2rem' }}
           >
             <i>{def.partOfSpeech}</i>
-          </h3>
+          </h2>
         </div>
       )}
       <div

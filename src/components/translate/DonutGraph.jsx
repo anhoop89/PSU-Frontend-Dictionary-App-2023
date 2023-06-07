@@ -28,14 +28,15 @@ const DonutGraph = ({ getSortedWords, lang }) => {
         chartInstance.destroy();
       }
 
-      const labels = getSortedWords
+      const sortedWords = getSortedWords
         .filter((word) => word.word.includes(`${lang}`))
         .slice(0, 5)
-        .map((word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`);
-      const data = getSortedWords
-        .filter((word) => word.word.includes(`${lang}`))
-        .slice(0, 5)
-        .map((word) => word.frequency);
+        .sort((a, b) => b.frequency - a.frequency);
+
+      const labels = sortedWords.map(
+        (word) => `#WORD: ${word.word.slice(0, -3).toUpperCase()}`
+      );
+      const data = sortedWords.map((word) => word.frequency);
 
       const chartData = {
         labels,
@@ -85,7 +86,8 @@ const DonutGraph = ({ getSortedWords, lang }) => {
   return (
     <div
       className="bg-dark rounded mx-auto p-4 mt-3 d-flex 
-                justify-content-center align-items-center border"
+                justify-content-center align-items-center border
+                "
       style={{ width: "90%", backgroundColor: "var(--bs-darker)" }}
     >
       <canvas
