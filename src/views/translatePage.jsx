@@ -5,6 +5,7 @@ This is a main page for the translate tab.
     will still display the words they have previously translated.
 
 Supported components: translateBar, visualize Translation Words History 
+cookies: https://github.com/js-cookie/js-cookie
 */
 
 import React, { useState, useEffect, useCallback } from "react";
