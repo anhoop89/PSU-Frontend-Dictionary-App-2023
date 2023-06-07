@@ -34,10 +34,10 @@ function ContactForm() {
     console.log("Suggestion:", suggestion);
     handleResetForm();
   };
-
+ 
   return (
     <div
-      className="bg-light rounded mx-auto p-3 mt-5 w-50"
+      className="bg-light rounded mx-auto p-3 mt-5"
       style={{ maxWidth: "600px" }}
     >
       <form className="formCustom mx-auto shadow rounded px-3 pt-3 pb-3 mb-3">
