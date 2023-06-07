@@ -43,6 +43,6 @@ Our project has been done in the main branch.
 
 > AOS to help animate between components: https://michalsnik.github.io/aos/
 
-> Axios to fetch data: https://axios-http.com/docs/intro
+> Axios to fetch API data: https://axios-http.com/docs/intro
 
 ```
