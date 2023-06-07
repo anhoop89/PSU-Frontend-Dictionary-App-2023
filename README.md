@@ -45,4 +45,6 @@ Our project has been done in the main branch.
 
 > Axios to fetch API data: https://axios-http.com/docs/intro
 
+> Auth0 to set up Authenication: https://auth0.com/docs
+
 ```
