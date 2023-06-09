@@ -10,7 +10,7 @@ export default function Definitions({ data }) {
   const defs = data.results;
 
   // Sort the definitions by their 'part of speech'
-  defs.sort((a, b) => a.partOfSpeech > b.partOfSpeech);
+  defs.sort((a, b) => (a.partOfSpeech > b.partOfSpeech ? 1 : -1));
 
   // Assign a 'title' flag to the first of each type of definition. This flag will
   // be used to determine where to display the partsOfSpeech section titles of the
