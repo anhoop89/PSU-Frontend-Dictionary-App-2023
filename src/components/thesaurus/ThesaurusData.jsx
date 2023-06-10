@@ -1,12 +1,12 @@
+import React, { useState } from "react";
 import NavTabs from "./ThesaurusTabs";
 import TabButton from "./TabButtonData";
-import React, { useState } from "react";
 
 const ThesaurusData = ({ data }) => {
   const [activeTab, setActiveTab] = useState("Synonyms");
 
   return (
-    <div className="rounded mt-4">
+    <section className="rounded mt-4">
       <div
         className="card-header p-3"
         style={{ backgroundColor: "var(--bs-dark)" }}
@@ -30,7 +30,7 @@ const ThesaurusData = ({ data }) => {
       >
         <TabButton activeTab={activeTab} data={data} />
       </div>
-    </div>
+    </section>
   );
 };
 

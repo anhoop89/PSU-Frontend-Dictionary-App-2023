@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import ThesaurusAPI from "../api/ThesaurusAPI";
-import SearchBar from "../components/SearchBar";
 import LoadingAnimation from "../components/LoadingAnimation";
+import SearchBar from "../components/SearchBar";
+import ThesaurusAPI from "../api/ThesaurusAPI";
 import ThesaurusData from "../components/thesaurus/ThesaurusData";
 import ThesaurusJson from "../components/thesaurus/ThesaurusJson";
 
