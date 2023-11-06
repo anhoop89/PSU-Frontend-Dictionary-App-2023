@@ -8,21 +8,30 @@ Students: Ian Lee & Anh Ho & Miles Whitaker
 
 Instructor: Caterina Paun
 
-# What about: 
+# Frontend Application: Data Retrieval & Visualization
 
-This frontend application has been meticulously designed to establish seamless integration with two distinct APIs. The core purpose of this integration is to efficiently retrieve data from these sources. Our application boasts robust error handling capabilities, ensuring it can gracefully manage data anomalies and automatically retry API requests when required, resulting in a resilient and reliable data-fetching mechanism.
+This frontend application seamlessly integrates with two distinct APIs, prioritizing efficient data retrieval. It excels in gracefully handling data anomalies and automatically retries API requests when necessary, ensuring a dependable data-fetching process.
 
+## Data Visualization
 
-For data visualization, we have chosen to leverage the Chart.js library, allowing us to create visually appealing and informative charts and graphs, enhancing the overall user experience.
+We leverage the powerful Chart.js library to create visually appealing charts and graphs, enhancing the user experience.
 
+## User Behavior Insights
 
-To provide insights into user behavior, we have implemented the use of cookies and caching mechanisms. These tools help us monitor and analyze the most frequently searched words and phrases, which can offer valuable insights for further improvements and optimizations.
+Our application utilizes cookies and caching mechanisms to track frequently searched words and phrases, providing valuable insights into user behavior.
 
+## Project Organization
 
-The project is diligently organized within a Git repository. This version control system not only helps in tracking changes and managing collaborative development but also ensures the project's security and stability.
+The project is meticulously organized within a Git repository, offering effective version control, collaboration, and enhanced security.
 
+## Authentication
 
-Furthermore, we are pleased to report that the application has been successfully deployed, making it accessible to users and ready for real-world use.
+Notably, we've implemented API login authentication through Auth0, enhancing security and user identity verification.
+
+## Deployment
+
+We are pleased to announce the successful deployment of the application, making it accessible and ready for real-world use. You can find the project within the main branch of our repository.
+
 
 Our project has been done in the main branch. 
 # Dictionary App SETUP
