@@ -8,30 +8,19 @@ Students: Ian Lee & Anh Ho & Miles Whitaker
 
 Instructor: Caterina Paun
 
-# Frontend Application: Data Retrieval & Visualization
+# What About:
 
-This frontend application seamlessly integrates with two distinct APIs, prioritizing efficient data retrieval. It excels in gracefully handling data anomalies and automatically retries API requests when necessary, ensuring a dependable data-fetching process.
+This frontend application stands as a testament to meticulous API integration, focusing on two distinct sources within the dictionary domain. Our foremost priority remains the efficient retrieval of data, with a strong commitment to gracefully managing data anomalies and orchestrating automatic API request retries, ensuring the utmost reliability and robustness in data acquisition.
 
-## Data Visualization
+Enhancing the user experience, we've harnessed the versatile capabilities of the Chart.js library, expertly crafting visually compelling and informative charts and graphs.
 
-We leverage the powerful Chart.js library to create visually appealing charts and graphs, enhancing the user experience.
+For a deep understanding of user behavior, our application leverages sophisticated cookies and caching mechanisms, diligently tracking the most frequently searched terms.
 
-## User Behavior Insights
+The project is meticulously organized within a secure Git repository, offering not only effective version control but also a collaborative environment fortified with rigorous security measures.
 
-Our application utilizes cookies and caching mechanisms to track frequently searched words and phrases, providing valuable insights into user behavior.
+Significantly, we've bolstered our application's security through API login authentication implemented via Auth0, adding an additional layer of user identity verification and data protection.
 
-## Project Organization
-
-The project is meticulously organized within a Git repository, offering effective version control, collaboration, and enhanced security.
-
-## Authentication
-
-Notably, we've implemented API login authentication through Auth0, enhancing security and user identity verification.
-
-## Deployment
-
-We are pleased to announce the successful deployment of the application, making it accessible and ready for real-world use. You can find the project within the main branch of our repository.
-
+We take great pride in announcing the successful deployment of our application, making it fully accessible and well-prepared for real-world utilization. This achievement is attributed to the committed development within the main branch of our repository.
 
 Our project has been done in the main branch. 
 # Dictionary App SETUP
