@@ -8,6 +8,22 @@ Students: Ian Lee & Anh Ho & Miles Whitaker
 
 Instructor: Caterina Paun
 
+# What about: 
+
+This frontend application has been meticulously designed to establish seamless integration with two distinct APIs. The core purpose of this integration is to efficiently retrieve data from these sources. Our application boasts robust error handling capabilities, ensuring it can gracefully manage data anomalies and automatically retry API requests when required, resulting in a resilient and reliable data-fetching mechanism.
+
+
+For data visualization, we have chosen to leverage the Chart.js library, allowing us to create visually appealing and informative charts and graphs, enhancing the overall user experience.
+
+
+To provide insights into user behavior, we have implemented the use of cookies and caching mechanisms. These tools help us monitor and analyze the most frequently searched words and phrases, which can offer valuable insights for further improvements and optimizations.
+
+
+The project is diligently organized within a Git repository. This version control system not only helps in tracking changes and managing collaborative development but also ensures the project's security and stability.
+
+
+Furthermore, we are pleased to report that the application has been successfully deployed, making it accessible to users and ready for real-world use.
+
 Our project has been done in the main branch. 
 # Dictionary App SETUP
 (All commands are with respect to the ** ROOT directory ** of the project)
